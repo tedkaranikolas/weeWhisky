@@ -34,7 +34,7 @@ myApp.controller('SearchWhiskyController', ['$scope', '$http', function($scope, 
       url: '/queryOut',
       data: scotchOut
     }).then(function(data){
-      console.log(data.keyword);
+      console.log(data);
       // $scope.retrieveHero();
     });
     $scope.keywordIn = '';

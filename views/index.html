@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <title>weeWhiskyApp</title>
+    <link rel="stylesheet" href="/vendors/bootstrap.min.css" media="screen" title="no title" charset="utf-8">
+    <script type="text/javascript" src="/vendors/angular.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/vendors/angular-route.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/scripts/client.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <h1>Above, Bilo, a Header</h1>
+
+    <nav>
+      <ul class="nav">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#whisky">Whisky</a></li>
+      </ul>
+    </nav>
+    <!-- <div ng-include="/partials">
+
+    </div> -->
+    <main ng-view></main>
+
+    <h3>Below, Bilo, a Footer</h3>
+  </body>
+</html>

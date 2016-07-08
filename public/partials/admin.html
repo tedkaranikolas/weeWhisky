@@ -1,14 +1,11 @@
 <body>
-<div ng-controller="SearchWhiskyController">
-    <input type="text" ng-model="keywordIn" value="" placeholder="Search by Keyword">
-      <select name="whiskyType" ng-model="whiskyType">
-            <option value="Single Malt">Single Malt</option>
-            <option value="Single Grain">Single Grain</option>
-            <option value="Blended Malt">Blended Malt</option>
-            <option value="Blended Grain">Blended Grain</option>
-            <option value="Blended Scotch Whisky">Blended Scotch Whisky</option>
-      </select>
-      <select name="scotchRegion" ng-model="scotchRegion">
+<div ng-controller="AdminWhiskyController">
+    <input type="text" ng-model="distilleryBottlerIn" value="" placeholder="Distillery/Bottler">
+    <input type="text" ng-model="expressionIn" value="" placeholder="Expression">
+    <textarea ng-model="palateIn" rows="2" cols="20" placeholder="Palate notes"></textarea>
+    <input type="text" ng-model="abvIn" value="" placeholder="ABV, number only">
+    <input type="text" ng-model="caskFinishIn" value="" placeholder="Cask Finish">
+      <select name="scotchRegion" ng-model="scotchRegionIn">
             <option value="Highlands">Highlands</option>
             <option value="Speyside">Speyside</option>
             <option value="Lowlands">Lowlands</option>
@@ -16,9 +13,17 @@
             <option value="Campbeltown">Campbeltown</option>
             <option value="Independent Bottler">Independent Bottler</option>
       </select>
-      <button type="button" ng-click="queryScotchDB()">Submit</button>
+      <select name="whiskyType" ng-model="whiskyTypeIn">
+            <option value="Single Malt">Single Malt</option>
+            <option value="Single Grain">Single Grain</option>
+            <option value="Blended Malt">Blended Malt</option>
+            <option value="Blended Grain">Blended Grain</option>
+            <option value="Blended Scotch Whisky">Blended Scotch Whisky</option>
+      </select>
+      <button type="button" ng-click="adminScotchDB()">Submit</button>
               <table>
                 <tr>
+                  <th>ID</th>
                   <th>Region</th>
                   <th>Distillery</th>
                   <th>Expression</th>
@@ -28,6 +33,7 @@
                   <th>Type of Scotch</th>
                 </tr>
                 <tr ng-repeat="scotch in allTheScotch">
+                  <td>{{scotch.id}}</td>
                   <td>{{scotch.region}}</td>
                   <td>{{scotch.distillery}}</td>
                   <td>{{scotch.expression}}</td>

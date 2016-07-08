@@ -3,8 +3,6 @@ var app = express();
 var path = require('path');
 var bodyParser = require('body-parser');
 var router = express.Router();
-// var pg = require('pg');
-// var connectionString = 'postgres://localhost:5432/scotchDB';
 
 app.use(express.static('public'));
 app.use(bodyParser.json());

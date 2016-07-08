@@ -1,8 +1,9 @@
 //begin AdminWhiskyController
 myApp.controller('AdminWhiskyController', ['$scope', '$http', function($scope, $http){
   console.log('Bilo in AdminWhiskyController');
+//$scope.alladMinScotch = [];
 
-  $scope.adminScotchDB = function(){
+  $scope.addScotchDB = function(){
     var scotchEntered = {
       distillery : $scope.distilleryBottlerIn,
       expression : $scope.expressionIn,
@@ -12,14 +13,14 @@ myApp.controller('AdminWhiskyController', ['$scope', '$http', function($scope, $
       region : $scope.scotchRegionIn,
       whisky_type : $scope.whiskyTypeIn
     };//end adminScotchDB
-    console.log('Bilo is sending ' + scotchEntered.region);
+    console.log('Bilo is sending ' + scotchEntered + 'to Biggles.');
     $http({
       method: 'POST',
       url: '/createScotch',
       data: scotchEntered
-    }).then(function(response){
-      $scope.adminScotch = response.data;
-      console.log('Bilo is ready for a drink: ' + response.data);
+    }).then(function(){
+      $scope.displayScotchDB();
+      console.log('Bilo is ready for a dram!');
     });//end queryScotchDB
 
 //clears all input fields
@@ -31,4 +32,16 @@ myApp.controller('AdminWhiskyController', ['$scope', '$http', function($scope, $
     $scope.whiskyTypeIn = '';
     $scope.scotchRegionIn = '';
   };
-}]);
+
+//begin GET to display all scotchDB
+$scope.displayScotchDB = function(){
+  $http({
+    method: 'GET',
+    url: '/getScotch'
+  }).then(function(response){
+    $scope.alladMinScotch = response.data;
+    console.log('Look at what Bilo found!');
+  });
+};//end displayScotchDB
+
+}]);//end AdminWhiskyController

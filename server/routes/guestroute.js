@@ -6,15 +6,6 @@ var router = express.Router();
 var pg = require('pg');
 var connectionString = 'postgres://localhost:5432/scotchDB';
 
-//app.use(express.static('public'));
-// app.use(bodyParser.json());
-
-// //base url
-// router.get( '/', function (req, res){
-//   console.log( 'Biggles at base url' );
-//   res.sendFile( path.resolve( 'views/index.html') );
-// });
-
 //begin query to scotchDB
 router.post('/queryOut', function (req, res){
   console.log('Biggles in queryOut ' + req.body.keyword + ' ' + ' ' + req.body.region + ' ' + ' ' + req.body.scotch_type);
@@ -34,4 +25,3 @@ router.post('/queryOut', function (req, res){
 });//end queryOut POST
 
 module.exports = router;
-//palate::

@@ -15,7 +15,6 @@ router.post('/createScotch', function (req, res){
     done();
   });
 });
-
 //begin GET for AdminWhiskyController
 router.get('/getScotch', function (req, res){
   console.log('Biggles going to the Scotch cellar...');

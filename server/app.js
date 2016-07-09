@@ -2,53 +2,56 @@ var express = require('express');
 var app = express();
 var path = require('path');
 var bodyParser = require('body-parser');
-var router = express.Router();
+var pg = require('pg');
+var connectionString = 'postgres://localhost:5432/scotchAdmin';
 
+//passport connection
+var passport = require('../strategies/user.js');
+var session = require('express-session');
+
+//route inclusion
+var register = require('./router/register');
+var guestroute = require('./router/guestroute');
+var adminroute = require('./router/adminroute');
+var login = require('./router/login');
+var router = require('./router/routes');
+
+//static folder
 app.use(express.static('public'));
+
+//bodyParser middleware
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
-var guestroute = require('./routes/guestroute');
-var adminroute = require('./routes/adminroute');
+//passport session conguguration
+app.use(session({
+   secret: 'secret',
+   key: 'user',
+   resave: 'true',
+   saveUninitialized: false,
+   cookie: {maxage: 60000, secure: false}
+}));
 
-//var router = require('./routes/adminroute');
-//use route.js
+// initialize passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+//use routes
 app.use('/', router);
-app.use('/', guestroute);
-app.use('/', adminroute);
+app.use('/register', register);
+app.use('/router', router);
+app.use('/login', login);
+app.use('/guestroute', guestroute);
+app.use('/adminroute', adminroute);
 
 //base url
-router.get( '/', function (req, res){
+app.get( '/', function (req, res){
   console.log( 'Biggles at base url' );
   res.sendFile( path.resolve( 'views/index.html') );
 });
 
 //spin server until last call for serverhol
-app.listen(5050, 'localhost', function(req, res){
-  console.log('Biggles listening on 5050');
+app.set('port', process.env.PORT || 5050);
+app.listen(app.get('port'), function() {
+    console.log('Biggles listening on port', app.get('port'));
 });
-
-// //base url
-// app.get( '/', function (req, res){
-//   console.log( 'Biggles at base url' );
-//   res.sendFile( path.resolve( 'views/index.html') );
-// });
-//
-// //begin query to scotchDB
-// app.post('/queryOut', function (req, res){
-//   console.log('Biggles in queryOut ' + req.body.keyword + ' ' + ' ' + req.body.region + ' ' + ' ' + req.body.scotch_type);
-//   var queriedScotch = [];
-//   pg.connect(connectionString, function(err, client, done){
-//     var scotchQuery = client.query( "SELECT * FROM whisky WHERE palate::text ILIKE '%" + req.body.keyword + "%'");
-//     console.log('in DB ', scotchQuery );
-//     scotchQuery.on('row', function(row){
-//       queriedScotch.push(row);
-//       console.log('queriedScotch' + queriedScotch);
-//     });
-//     scotchQuery.on('end', function(){
-//       console.log(queriedScotch);
-//       return res.json(queriedScotch);
-//     });
-//   });//end scotchDB connectionString
-// });//end queryOut POST
-// var queryString = "SELECT * FROM whisky WHERE palate::text LIKE '%" + req.body.keyword + "%'";
-// console.log( 'query string: ' + queryString );

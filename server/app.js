@@ -9,12 +9,12 @@ app.use(bodyParser.json());
 
 var guestroute = require('./routes/guestroute');
 var adminroute = require('./routes/adminroute');
+
 //var router = require('./routes/adminroute');
 //use route.js
 app.use('/', router);
 app.use('/', guestroute);
 app.use('/', adminroute);
-
 
 //base url
 router.get( '/', function (req, res){

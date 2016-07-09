@@ -19,8 +19,8 @@ myApp.controller('AdminWhiskyController', ['$scope', '$http', function($scope, $
       url: '/createScotch',
       data: scotchEntered
     }).then(function(){
+      //console.log('Bilo drank it.  ALL.');
       $scope.displayScotchDB();
-      console.log('Bilo is ready for a dram!');
     });//end queryScotchDB
 
 //clears all input fields
@@ -43,5 +43,19 @@ $scope.displayScotchDB = function(){
     console.log('Look at what Bilo found!');
   });
 };//end displayScotchDB
+
+//begin DELETE for AdminWhiskyController
+$scope.deleteScotchDB = function(scotchID){
+  var sendID = {id: scotchID};
+  $http({
+    method: 'DELETE',
+    url: '/deleteScotch',
+    data: sendID,
+    headers: {'Content-Type': 'application/json;charset=utf-8'}
+  }).then(function(){
+    $scope.displayScotchDB();
+    console.log('Bilo drank it.  ALL.');
+  });
+};
 
 }]);//end AdminWhiskyController

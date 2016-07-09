@@ -8,11 +8,11 @@ var connectionString = 'postgres://localhost:5432/scotchDB';
 
 //begin query to scotchDB
 router.post('/queryOut', function (req, res){
-  console.log('Biggles in queryOut ' + req.body.keyword + ' ' + ' ' + req.body.region + ' ' + ' ' + req.body.scotch_type);
+  console.log('Biggles is heading to the DB bar with his buddies ' + req.body.keyword + ' ' + ' ' + req.body.region + ' ' + ' ' + req.body.scotch_type);
   var queriedScotch = [];
   pg.connect(connectionString, function(err, client, done){
     var scotchQuery = client.query( "SELECT * FROM whisky WHERE palate::text ILIKE '%" + req.body.keyword + "%'");
-    console.log('in DB ', scotchQuery );
+    console.log('Biggles is in! He is in!', scotchQuery );
     scotchQuery.on('row', function(row){
       queriedScotch.push(row);
       console.log('queriedScotch' + queriedScotch);

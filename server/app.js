@@ -39,7 +39,7 @@ app.use(passport.session());
 //use routes
 app.use('/', router);
 app.use('/register', register);
-app.use('/router', router);
+app.use('/routes', router);
 app.use('/login', login);
 app.use('/guestroute', guestroute);
 app.use('/adminroute', adminroute);

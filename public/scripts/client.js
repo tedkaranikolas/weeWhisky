@@ -5,9 +5,17 @@ var myApp = angular.module("myApp", ["ngRoute"]);
 myApp.config(["$routeProvider", function($routeProvider){
     $routeProvider
 
+    .when('/login', {
+      templateUrl : 'partials/login.html',
+      controller : 'LoginController'
+    })
+    .when('/register', {
+      templateUrl : 'partials/register.html',
+      controller : 'LoginController'
+    })
     .when('/home', {
-      templateUrl : 'partials/home.html',
-    //  controller : 'HomeController'
+      templateUrl : 'partials/success.html',
+      controller : 'HomeController'
     })
     .when('/whisky', {
       templateUrl : 'partials/whisky.html',

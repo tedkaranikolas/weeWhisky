@@ -1,5 +1,5 @@
 myApp.controller('HomeController', ['$scope', '$http', '$window', '$location', function($scope, $http, $window, $location) {
-  console.log('home controller running');
+  console.log('Bilo is in HomeController');
   $scope.message = "Home Controller!";
 
   $scope.user_id= {};

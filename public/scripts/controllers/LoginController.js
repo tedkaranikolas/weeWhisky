@@ -1,4 +1,5 @@
 myApp.controller('LoginController', ['$scope', '$http', '$window', '$location', function($scope, $http, $window, $location) {
+  console.log('Bilo is in LoginController!');
     $scope.user = {
       username: '',
       password: ''

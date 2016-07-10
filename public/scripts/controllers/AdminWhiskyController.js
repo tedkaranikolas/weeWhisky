@@ -1,7 +1,6 @@
 //begin AdminWhiskyController
 myApp.controller('AdminWhiskyController', ['$scope', '$http', function($scope, $http){
   console.log('Bilo in AdminWhiskyController');
-//$scope.alladMinScotch = [];
 
   $scope.addScotchDB = function(){
     var scotchEntered = {

@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var path = require('path');
 var bodyParser = require('body-parser');
+//db connection
 var pg = require('pg');
 var connectionString = 'postgres://localhost:5432/scotchAdmin';
 
@@ -10,18 +11,18 @@ var passport = require('../strategies/user.js');
 var session = require('express-session');
 
 //route inclusion
-var register = require('./router/register');
-var guestroute = require('./router/guestroute');
-var adminroute = require('./router/adminroute');
-var login = require('./router/login');
-var router = require('./router/routes');
+var register = require('./routes/register');
+var guestroute = require('./routes/guestroute');
+var adminroute = require('./routes/adminroute');
+var login = require('./routes/login');
+var router = require('./routes/router');
 
 //static folder
-app.use(express.static('public'));
+app.use(express.static( 'public' ));
 
 //bodyParser middleware
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
+//app.use(bodyParser.urlencoded({extended: true}));
 
 //passport session conguguration
 app.use(session({
@@ -37,15 +38,18 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //use routes
-app.use('/', router);
-app.use('/register', register);
-app.use('/routes', router);
 app.use('/login', login);
-app.use('/guestroute', guestroute);
-app.use('/adminroute', adminroute);
+app.use('/register', register);
+app.use('/router', router);
+app.use('/', login);
+
+app.use('/', router);
+
+app.use('/', guestroute);
+app.use('/', adminroute);
 
 //base url
-app.get( '/', function (req, res){
+router.get( '/', function (req, res){
   console.log( 'Biggles at base url' );
   res.sendFile( path.resolve( 'views/index.html') );
 });

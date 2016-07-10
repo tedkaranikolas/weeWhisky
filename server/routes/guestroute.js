@@ -12,10 +12,10 @@ router.post('/queryOut', function (req, res){
   var queriedScotch = [];
   pg.connect(connectionString, function(err, client, done){
     var scotchQuery = client.query( "SELECT * FROM whisky WHERE palate::text ILIKE '%" + req.body.keyword + "%'");
-    console.log('Biggles is in! He is in!', scotchQuery );
+    console.log('Biggles is in! He is in!');
     scotchQuery.on('row', function(row){
       queriedScotch.push(row);
-      console.log('queriedScotch' + queriedScotch);
+      console.log('Lookee what Biggles found!');
     });
     scotchQuery.on('end', function(){
       console.log(queriedScotch);

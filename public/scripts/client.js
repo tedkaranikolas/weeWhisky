@@ -5,27 +5,27 @@ var myApp = angular.module("myApp", ["ngRoute"]);
 myApp.config(["$routeProvider", function($routeProvider){
     $routeProvider
 
-    .when('/login', {
-      templateUrl : 'partials/login.html',
+    .when('/', {
+      templateUrl : '/views/login.html',
       controller : 'LoginController'
     })
     .when('/register', {
-      templateUrl : 'partials/register.html',
+      templateUrl : '/views/register.html',
       controller : 'LoginController'
     })
     .when('/home', {
-      templateUrl : 'partials/success.html',
-      controller : 'HomeController'
+      templateUrl : '/views/login.html',
+      controller : 'LoginController'
     })
     .when('/whisky', {
-      templateUrl : 'partials/whisky.html',
+      templateUrl : '/views/whisky.html',
       controller : 'SearchWhiskyController'
     })
     .when('/admin', {
-      templateUrl : 'partials/admin.html',
-      controller : 'AdminWhiskyController'
+      templateUrl : '/views/admin.html',
+      controller : 'AdminWhiskyController',
     })
     .otherwise({
-      redirectTo: '/home'
+      redirectTo: '/whisky'
     });
 }]);//angular routing for FE ends

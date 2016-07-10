@@ -13,16 +13,20 @@
     <script type="text/javascript" src="/scripts/controllers/SearchWhiskyController.js" charset="utf-8"></script>
   </head>
   <body>
-    <h1>Above, Bilo, a Header</h1>
-
-    <nav>
+    <header>
+      <h1>Above, Bilo, a Header</h1>
+    </header>
+    <!-- <nav>
         <a href="#home">Home |</a>
         <a href="#whisky">Whisky |</a>
-        <a href="#admin">Admin</a>
-    </nav>
-
+        <a href="#login">Admin</a>
+    </nav> -->
+    <div ng-include="'views/partials/nav.html'"></div>
     <main ng-view></main>
 
+  <footer>
     <h3>Below, Bilo, a Footer</h3>
+  </footer>
   </body>
+
 </html>

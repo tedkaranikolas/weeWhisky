@@ -13,7 +13,7 @@ router.post('/',
 //handles index file separately
 //also catches any other request not explicitly matched elsewhere
 router.get('/', function(req, res) {
-  res.sendFile(path.resolve('public/views/index.html'));
+  res.sendFile(path.resolve('public/index.html')); //had views after public
 });
 
 module.exports = router;

@@ -6,15 +6,11 @@ myApp.config(["$routeProvider", function($routeProvider){
     $routeProvider
 
     .when('/', {
-      templateUrl : '/views/login.html',
-      controller : 'LoginController'
-    })
-    .when('/register', {
-      templateUrl : '/views/register.html',
-      controller : 'LoginController'
+      templateUrl : 'public/index.html',
+      // controller : 'SearchWhiskyController'
     })
     .when('/home', {
-      templateUrl : '/views/login.html',
+      templateUrl : '/views/home.html',
       controller : 'LoginController'
     })
     .when('/whisky', {
@@ -22,10 +18,18 @@ myApp.config(["$routeProvider", function($routeProvider){
       controller : 'SearchWhiskyController'
     })
     .when('/admin', {
-      templateUrl : '/views/admin.html',
-      controller : 'AdminWhiskyController',
+      templateUrl : '/views/login.html',
+      controller : 'LoginController'
+    })
+    .when('/adminscotch', {
+      templateUrl : '/views/adminscotch.html',
+      controller : 'AdminWhiskyController'
     })
     .otherwise({
-      redirectTo: '/whisky'
+      redirectTo: '/home'
     });
+    // .when('/register', {
+    //   templateUrl : '/views/register.html',
+    //   controller : 'LoginController'
+    // })
 }]);//angular routing for FE ends

@@ -51,7 +51,7 @@ app.use('/', adminroute);
 //base url
 router.get( '/', function (req, res){
   console.log( 'Biggles at base url' );
-  res.sendFile( path.resolve( 'views/index.html') );
+  res.sendFile( path.resolve( 'public/index.html') );//was views
 });
 
 //spin server until last call for serverhol

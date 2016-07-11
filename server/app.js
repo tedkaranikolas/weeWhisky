@@ -1,7 +1,12 @@
 var express = require('express');
 var app = express();
 var path = require('path');
+//static folder
+app.use(express.static(path.join(__dirname, '../public')));
+//app.use(express.static( 'public' ));
+
 var bodyParser = require('body-parser');
+
 //db connection
 var pg = require('pg');
 var connectionString = 'postgres://localhost:5432/scotchAdmin';
@@ -16,9 +21,6 @@ var guestroute = require('./routes/guestroute');
 var adminroute = require('./routes/adminroute');
 var login = require('./routes/login');
 var router = require('./routes/router');
-
-//static folder
-app.use(express.static( 'public' ));
 
 //bodyParser middleware
 app.use(bodyParser.json());

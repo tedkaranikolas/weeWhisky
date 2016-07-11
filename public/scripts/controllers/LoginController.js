@@ -1,9 +1,9 @@
 myApp.controller('LoginController', ['$scope', '$http', '$window', '$location', function($scope, $http, $window, $location) {
   console.log('Bilo is in LoginController!');
-    // $scope.user = {
-    //   username: '',
-    //   password: ''
-    // };
+    $scope.user = {
+      username: '',
+      password: ''
+    };
     $scope.message = '';
 
     $scope.login = function() {
@@ -22,10 +22,6 @@ myApp.controller('LoginController', ['$scope', '$http', '$window', '$location', 
           }
         });
       }
-    };
-    $scope.user = {
-      username: '',
-      password: ''
     };
 
     $scope.registerUser = function() {

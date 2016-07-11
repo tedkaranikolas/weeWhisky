@@ -9,8 +9,6 @@ var connection = require('../modules/connection');
 var pg = require('pg');
 var connectionString = 'postgres://localhost:5432/scotchAdmin';
 
-console.log('Biggles is registering this...');
-
 //handles POST request with new user data
 router.post('/', function(req, res, next) {
 

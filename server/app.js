@@ -1,9 +1,9 @@
 var express = require('express');
 var app = express();
 var path = require('path');
+
 //static folder
 app.use(express.static(path.join(__dirname, '../public')));
-//app.use(express.static( 'public' ));
 
 var bodyParser = require('body-parser');
 
@@ -15,6 +15,9 @@ var connectionString = 'postgres://localhost:5432/scotchAdmin';
 var passport = require('../strategies/user.js');
 var session = require('express-session');
 
+//bodyParser middleware
+app.use(bodyParser.json());
+
 //route inclusion
 var register = require('./routes/register');
 var guestroute = require('./routes/guestroute');
@@ -24,7 +27,6 @@ var router = require('./routes/router');
 
 //bodyParser middleware
 app.use(bodyParser.json());
-//app.use(bodyParser.urlencoded({extended: true}));
 
 //passport session conguguration
 app.use(session({
@@ -45,7 +47,7 @@ app.use('/register', register);
 app.use('/router', router);
 app.use('/', login);
 
-app.use('/', router);
+//app.use('/', router);
 
 app.use('/', guestroute);
 app.use('/', adminroute);

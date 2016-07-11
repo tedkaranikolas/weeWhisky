@@ -25,10 +25,10 @@ myApp.config(["$routeProvider", function($routeProvider){
     })
     .when('/adminscotch', {
       templateUrl : '/views/adminscotch.html',
-      controller : 'HomeController'
+      controller : 'LoginController'
     })
     .otherwise({
       redirectTo: '/home'
     });
-  
+
 }]);//angular routing for FE ends

@@ -1,5 +1,6 @@
 myApp.controller('LoginController', ['$scope', '$http', '$window', '$location', function($scope, $http, $window, $location) {
   console.log('Bilo is in LoginController!');
+
     $scope.user = {
       username: '',
       password: ''
@@ -18,12 +19,12 @@ myApp.controller('LoginController', ['$scope', '$http', '$window', '$location', 
             $location.path('/adminscotch');//was login
           } else {
             console.log('failure: ', response);
-            $scope.message = "Wrong!!";
+            $scope.message = 'Incorrect';
           }
         });
       }
     };
-
+console.log('above register user');
     $scope.registerUser = function() {
       if($scope.user.username === '' || $scope.user.password === '') {
         $scope.message = "Choose a username and password!";
@@ -38,5 +39,27 @@ myApp.controller('LoginController', ['$scope', '$http', '$window', '$location', 
           $scope.message = "Please try again.";
         });
       }
+    };
+//Copied from home controller
+    // $scope.user_id= {};
+    // getUser();
+    //
+    // function getUser() {
+    // $http.get('/router').then(function(response) {
+    //       if(response.data.username) {
+    //           $scope.userName = response.data.username;
+    //           $scope.user_id = response.data._id;
+    //           console.log('User Data: ', $scope.userName);
+    //       } else {
+    //           $location.path("/login");
+    //       }
+    //   });
+    // }
+    //Copied from HomeController
+    $scope.logout = function() {
+      $http.get('/router/logout').then(function(response) {
+        console.log('logged out');
+        $location.path("/login");
+      });
     };
 }]);

@@ -11,7 +11,7 @@ passport.serializeUser(function(user, done) {
 passport.deserializeUser(function(id, done) {
 
   console.log('Biggles called deserializeUser');
-  pg.connect(connection, function (err, client) {
+  pg.connect(connection, function (err, client, complete) {
     console.log('Biggles called deserializeUser in pg-connect');
     var user = {};
       var query = client.query("SELECT * FROM scotch_users WHERE id = $1", [id]);
@@ -24,7 +24,7 @@ passport.deserializeUser(function(id, done) {
 
       // After all data is returned, close connection and return results
       query.on('end', function () {
-          client.end();
+          complete();//client.end();
       });
 
       // Handle Errors

@@ -24,10 +24,23 @@ myApp.controller('LoginController', ['$scope', '$http', '$window', '$location', 
         });
       }
     };
-console.log('above register user');
+    $scope.user_id= {};
+    // getUser();
+    //
+    // function getUser() {
+    // $http.get('/router').then(function(response) {
+    //       if(response.data.username) {
+    //           $scope.userName = response.data.username;
+    //           $scope.user_id = response.data._id;
+    //           console.log('User Data: ', $scope.userName);
+    //       } else {
+    //           $location.path("/login");
+    //       }
+    //   });
+    // }
     $scope.registerUser = function() {
       if($scope.user.username === '' || $scope.user.password === '') {
-        $scope.message = "Choose a username and password!";
+        $scope.message = "Choose a username and password";
       } else {
         console.log('sending to server...', $scope.user);
         $http.post('/register', $scope.user).then(function(response) {

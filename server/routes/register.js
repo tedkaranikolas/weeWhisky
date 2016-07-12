@@ -7,7 +7,7 @@ var path = require('path');
 var encryptLib = require('../modules/encryption');
 var connection = require('../modules/connection');
 var pg = require('pg');
-var connectionString = 'postgres://localhost:5432/scotchDB';
+var connectionString = 'postgres://localhost:5432/whiskyDB';
 
 //handles POST request with new user data
 router.post('/', function(req, res, next) {

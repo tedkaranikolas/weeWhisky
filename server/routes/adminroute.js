@@ -4,7 +4,7 @@ var path = require('path');
 var bodyParser = require('body-parser');
 var router = express.Router();
 var pg = require('pg');
-var connectionString = 'postgres://localhost:5432/scotchDB';
+var connectionString = 'postgres://localhost:5432/whiskyDB';
 
 //begin POST to create scotch
 router.post('/createScotch', function (req, res){

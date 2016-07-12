@@ -27,6 +27,10 @@ myApp.config(["$routeProvider", function($routeProvider){
       templateUrl : '/views/adminscotch.html',
       controller : 'LoginController'
     })
+    .when('/test',{
+        templateUrl : '/views/test.html',
+        controller : 'TestController'
+    })
     .otherwise({
       redirectTo: '/home'
     });

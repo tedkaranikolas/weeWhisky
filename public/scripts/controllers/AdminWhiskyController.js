@@ -2,6 +2,13 @@
 myApp.controller('AdminWhiskyController', ['$scope', '$http', function($scope, $http){
   console.log('Bilo in AdminWhiskyController');
 
+var app = angular.module("app", ["xeditable", "ngMockE2E"]);
+
+app.run(function(editableOptions) {
+  editableOptions.theme = 'bs3';
+
+});
+
   $scope.addScotchDB = function(){
     var scotchEntered = {
       distillery : $scope.distilleryBottlerIn,
@@ -32,7 +39,7 @@ myApp.controller('AdminWhiskyController', ['$scope', '$http', function($scope, $
     $scope.scotchRegionIn = '';
   };
 
-//begin GET to display all scotchDB
+//begin GET to display all whiskyDB
 $scope.displayScotchDB = function(){
   $http({
     method: 'GET',

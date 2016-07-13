@@ -1,13 +1,12 @@
 //begin AdminWhiskyController
 myApp.controller('AdminWhiskyController', ['$scope', '$http', function($scope, $http){
-  console.log('Bilo in AdminWhiskyController');
+  console.log('Bilo is in AdminWhiskyController');
 
-var app = angular.module("app", ["xeditable", "ngMockE2E"]);
-
-app.run(function(editableOptions) {
-  editableOptions.theme = 'bs3';
-
-});
+// var app = angular.module("app", ["xeditable", "ngMockE2E"]);
+//
+// app.run(function(editableOptions) {
+//   editableOptions.theme = 'bs3';
+// });
 
   $scope.addScotchDB = function(){
     var scotchEntered = {

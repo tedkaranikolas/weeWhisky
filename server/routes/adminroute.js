@@ -10,7 +10,8 @@ var connectionString = 'postgres://localhost:5432/whiskyDB';
 router.post('/createScotch', function (req, res){
   console.log('Biggles distilled ' + req.body.distillery);
   pg.connect(connectionString, function(err, client, done){
-    client.query("INSERT INTO whisky ( region, distillery, expression, palate, abv, cask_finish, whisky_type) values ( $1, $2, $3, $4, $5, $6, $7 )",[req.body.region, req.body.distillery, req.body.expression, req.body.palate, req.body.abv, req.body.cask_finish, req.body.whisky_type]);
+    // client.query("INSERT INTO whisky ( region, distillery, expression, palate, abv, cask_finish, whisky_type) values ( $1, $2, $3, $4, $5, $6, $7 )",[req.body.region, req.body.distillery, req.body.expression, req.body.palate, req.body.abv, req.body.cask_finish, req.body.whisky_type]);
+    client.query("INSERT INTO whisky ( region_id, producer_id, expression, palate, abv, cask_finish_id, whisky_type_id) values ( $1, $2, $3, $4, $5, $6, $7 )",[req.body.region, req.body.distillery, req.body.expression, req.body.palate, req.body.abv, req.body.cask_finish, req.body.whisky_type]);
     res.send(true);
     done();
   });

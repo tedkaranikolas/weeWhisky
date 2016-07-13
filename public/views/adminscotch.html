@@ -3,12 +3,15 @@
     <div class="input-group">
       <input type="text" class="form-control" aria-describedby="sizing-addon3" ng-model="distilleryBottlerIn" maxlength ="15" value="" placeholder="Distillery/Bottler">
         </div>
-    <input type="text" ng-model="expressionIn" maxlength ="32" value="" placeholder="Expression">
-
-    <input ng-model="palateIn" placeholder="Palate notes">
-
-    <input type="text" ng-model="abvIn" maxlength ="3" value="" placeholder="ABV, number only">
-
+    <div class="input-group">
+      <input type="text" class="form-control" aria-describedby="sizing-addon3" ng-model="expressionIn" maxlength ="32" value="" placeholder="Expression">
+        </div>
+    <div class="input-group">
+      <input ng-model="palateIn" class="form-control" aria-describedby="sizing-addon3" placeholder="Palate notes">
+        </div>
+    <div class="input-group">
+      <input type="text" ng-model="abvIn" class="form-control" aria-describedby="sizing-addon3" maxlength ="3" value="" placeholder="ABV, number only">
+        </div>
       <select name="caskFinishIn" ng-model="caskFinishIn">
           <option value="">Cask Finish</option>
           <option value="Bourbon">Bourbon</option>
@@ -46,6 +49,7 @@
       </select>
 
       <select name="whiskyType" ng-model="whiskyTypeIn">
+            <option value="">Whisky Type</option>
             <option value="Single Malt">Single Malt</option>
             <option value="Single Grain">Single Grain</option>
             <option value="Blended Malt">Blended Malt</option>

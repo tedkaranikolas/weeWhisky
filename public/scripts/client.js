@@ -1,5 +1,6 @@
 console.log('Bilo loaded client.js');
 var myApp = angular.module("myApp", ["ngRoute"]);
+// var myApp = angular.module("myApp", ["ngRoute", "xeditable", "ngMockE2E"]);
 
 //angular routing for FE begins
 myApp.config(["$routeProvider", function($routeProvider){
@@ -26,6 +27,10 @@ myApp.config(["$routeProvider", function($routeProvider){
     .when('/adminscotch', {
       templateUrl : '/views/adminscotch.html',
       controller : 'LoginController'
+    })
+    .when('/test', {
+      templateUrl : '/views/test.html',
+      controller : 'TestController'
     })
     .otherwise({
       redirectTo: '/home'

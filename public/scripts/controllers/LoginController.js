@@ -24,7 +24,6 @@ myApp.controller('LoginController', ['$scope', '$http', '$window', '$location', 
         });
       }
     };
-console.log('above register user');
     $scope.registerUser = function() {
       if($scope.user.username === '' || $scope.user.password === '') {
         $scope.message = "Choose a username and password!";

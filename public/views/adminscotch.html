@@ -8,7 +8,7 @@
     <input ng-model="palateIn" placeholder="Palate notes">
 
     <input type="text" ng-model="abvIn" maxlength ="3" value="" placeholder="ABV, number only">
-  
+
       <select name="caskFinishIn" ng-model="caskFinishIn">
           <option value="">Cask Finish</option>
           <option value="Bourbon">Bourbon</option>
@@ -68,20 +68,46 @@
                   <th>Type of Scotch</th>
               </tr>
                 <tr ng-repeat="scotch in alladMinScotch">
-                  <td>
+                    <td>
                       <span editable-text="scotch.id" e-name="id" e-form="rowform" e-required>
-                      {{scotch.id || 'empty'}}
+                        {{scotch.id || 'empty'}}
                       </span>
                   </td>
-                  <td>
-                  {{scotch.region}}
+                    <td>
+                      <span editable-text="scotch.region" e-name="id" e-form="rowform" e-required>
+                        {{scotch.region || 'empty'}}
+                      </span>
                   </td>
-                  <td>{{scotch.distillery}}</td>
-                  <td>{{scotch.expression}}</td>
-                  <td>{{scotch.palate}}</td>
-                  <td>{{scotch.abv}}</td>
-                  <td>{{scotch.cask_finish}}</td>
-                  <td>{{scotch.whisky_type}}</td>
+                    <td>
+                      <span editable-text="scotch.distellery" e-name="id" e-form="rowform" e-required>
+                        {{scotch.distillery || 'empty'}}
+                      </span>
+                    </td>
+                  <td>
+                      <span editable-text="scotch.expression" e-name="id" e-form="rowform" e-required>
+                        {{scotch.expression || 'empty'}}
+                      </span>
+                    </td>
+                  <td>
+                      <span editable-text="scotch.palate" e-name="id" e-form="rowform" e-required>
+                        {{scotch.palate || 'empty'}}
+                      </span>
+                    </td>
+                  <td>
+                      <span editable-text="scotch.abv" e-name="id" e-form="rowform" e-required>
+                        {{scotch.abv || 'empty'}}
+                      </span>
+                    </td>
+                  <td>
+                      <span editable-text="scotch.cask_finish" e-name="id" e-form="rowform" e-required>
+                        {{scotch.cask_finish || 'empty'}}
+                      </span>
+                    </td>
+                  <td>
+                      <span editable-text="scotch.whisky_type" e-name="id" e-form="rowform" e-required>
+                        {{scotch.whisky_type || 'empty'}}
+                      </span>
+                    </td>
                   <td style="white-space: nowrap">
                   <form editable-form name="rowform" onbeforesave="saveUser($data, scotch.id)" ng-show="rowform.$visible" class="form-buttons form-inline" shown="inserted == scotch">
                     <button type="button" ng-disabled="rowform.$waiting" ng-click="addScotchDB()" class="btn btn-primary">
@@ -93,7 +119,7 @@
                   </form>
                   <div class="buttons" ng-show="!rowform.$visible">
                     <button class="btn btn-primary" ng-click="rowform.$show()">Edit</button>
-                    <button class="btn btn-danger" ng-click="deleteScotchDB(scotch.id)">Del</button>
+                    <button class="btn btn-danger" ng-click="deleteScotchDB(scotch.id)">Delete</button>
                   </div>
 
                   <!-- <button type="button" name="deleteScotchDB" ng-click="deleteScotchDB(scotch.id)" class="btn btn-primary">Delete</button> -->

@@ -67,6 +67,7 @@ $scope.deleteScotchDB = function(scotchID){
      data: data
    });
  };
+ //CASK FINISH MENU
  $http({
    method: 'GET',
    url: '/menu/cask',
@@ -74,7 +75,7 @@ $scope.deleteScotchDB = function(scotchID){
    console.log(response.data);
      $scope.data = {
          model: null,
-         availableOptions: response.data   
+         availableOptions: response.data
       };
  });
 

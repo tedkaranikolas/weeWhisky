@@ -19,4 +19,20 @@ router.get('/cask', function(req, res){
     done();
   });
 });
+
+router.get('/region', function(req, res){
+  console.log('Biggles is in region route');
+  var regionResults = [];
+  pg.connect(connectionString, function(err, client, done){
+    var regionQuery = client.query("SELECT * FROM region");
+    regionQuery.on('row', function(row){
+      regionResults.push(row);
+    });
+    regionQuery.on('end', function(){
+      return res.json(caskResults);
+    });
+    done();
+  });
+});
+
 module.exports = router;

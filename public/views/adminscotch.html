@@ -2,14 +2,8 @@
 <div ng-controller="AdminWhiskyController">
     <div class="input-group">
       <input type="text" class="form-control" aria-describedby="sizing-addon3" ng-model="distilleryBottlerIn" maxlength ="15" value="" placeholder="Distillery/Bottler">
-
-
       <input type="text" class="form-control" aria-describedby="sizing-addon3" ng-model="expressionIn" maxlength ="32" value="" placeholder="Expression">
-
-
       <input ng-model="palateIn" class="form-control" aria-describedby="sizing-addon3" placeholder="Palate notes">
-
-
       <input type="text" ng-model="abvIn" class="form-control" aria-describedby="sizing-addon3" maxlength ="3" value="" placeholder="ABV, number only">
     </div>
 
@@ -21,7 +15,6 @@
           <option value="Bourbon and Sherry">Bourbon and Sherry</option>
           <option value="Bourbon and Oloroso">Bourbon and Oloroso</option>
           <option value="Bourbon and Port">Bourbon and Port</option>
-          <option value="Bourbon and Sherry">Bourbon and Sherry</option>
           <option value="Sauternes">Sauternes</option>
           <option value="Oloroso and Pedro Ximenez">Oloroso and Pedro Ximenez</option>
           <option value="Caribbean Rum">Caribbean Rum</option>
@@ -29,8 +22,12 @@
           <option value="Other">Other</option>
       </select>
 
-      <select name="repeatSelect" id="repeatSelect" ng-model="data.model">
+      <select name="repeatCaskFinish" id="repeatCaskFinish" ng-model="data.model">
           <option ng-repeat="option in data.availableOptions" value="{{option.id}}">{{option.finish}}</option>
+      </select>
+
+      <select name="repeatRegionSelect" id="repeatRegionSelect" ng-model="data.model">
+          <option ng-repeat="option in data.availableOptions" value="{{option.id}}">{{option.region}}</option>
       </select>
 
       <select name="scotchRegion" class="c-select" ng-model="scotchRegionIn">

@@ -7,10 +7,6 @@ app.use(express.static(path.join(__dirname, '../public')));
 
 var bodyParser = require('body-parser');
 
-//db connection
-var pg = require('pg');
-var connectionString = 'postgres://localhost:5432/scotchAdmin';
-
 //passport connection
 var passport = require('../strategies/user.js');
 var session = require('express-session');
@@ -24,7 +20,7 @@ var guestroute = require('./routes/guestroute');
 var adminroute = require('./routes/adminroute');
 var login = require('./routes/login');
 var router = require('./routes/router');
-
+var menu = require('./routes/menu');
 //bodyParser middleware
 app.use(bodyParser.json());
 
@@ -46,8 +42,7 @@ app.use('/login', login);
 app.use('/register', register);
 app.use('/router', router);
 app.use('/', login);
-
-//app.use('/', router);
+app.use('/menu', menu);
 
 app.use('/', guestroute);
 app.use('/', adminroute);

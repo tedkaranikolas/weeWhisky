@@ -29,6 +29,10 @@
           <option value="Other">Other</option>
       </select>
 
+      <select name="repeatSelect" id="repeatSelect" ng-model="data.model">
+          <option ng-repeat="option in data.availableOptions" value="{{option.id}}">{{option.finish}}</option>
+      </select>
+
       <select name="scotchRegion" class="c-select" ng-model="scotchRegionIn">
             <option disable selected value>Whisky Region</option>
             <option value="Highlands">Highlands</option>

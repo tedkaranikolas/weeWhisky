@@ -32,7 +32,7 @@ myApp.controller('AdminWhiskyController', ['$scope', '$http', function($scope, $
     $scope.scotchRegionIn = '';
   };
 
-//begin GET to display all scotchDB
+//begin GET to display all whiskyDB
 $scope.displayScotchDB = function(){
   $http({
     method: 'GET',
@@ -67,5 +67,16 @@ $scope.deleteScotchDB = function(scotchID){
      data: data
    });
  };
+ $http({
+   method: 'GET',
+   url: '/menu/cask',
+ }).then(function(response){
+   console.log(response.data);
+     $scope.data = {
+         model: null,
+         availableOptions: response.data   
+      };
+ });
+
 
 }]);//end AdminWhiskyController

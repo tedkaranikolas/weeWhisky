@@ -14,7 +14,7 @@ passport.deserializeUser(function(id, done) {
   pg.connect(connection, function (err, client, complete) {
     console.log('Biggles called deserializeUser in pg-connect');
     var user = {};
-      var query = client.query("SELECT * FROM scotch_users WHERE id = $1", [id]);
+      var query = client.query("SELECT * FROM users WHERE id = $1", [id]);
 
       query.on('row', function (row) {
         console.log('User row', row);
@@ -42,7 +42,7 @@ passport.use('local', new localStrategy({
 	    pg.connect(connection, function (err, client) {
 	    	console.log('Biggles called local - pg');
 	    	var user = {};
-        var query = client.query("SELECT * FROM scotch_users WHERE username = $1", [username]);
+        var query = client.query("SELECT * FROM users WHERE username = $1", [username]);
 
         query.on('row', function (row) {
         	console.log('User obj', row);

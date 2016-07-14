@@ -10,7 +10,8 @@ var connectionString = 'postgres://localhost:5432/scotchDB';
 router.post('/createScotch', function (req, res){
   console.log('Biggles distilled ' + req.body.distillery);
   pg.connect(connectionString, function(err, client, done){
-    client.query("INSERT INTO whisky ( region, distillery, expression, palate, abv, cask_finish, whisky_type) values ( $1, $2, $3, $4, $5, $6, $7 )",[req.body.region, req.body.distillery, req.body.expression, req.body.palate, req.body.abv, req.body.cask_finish, req.body.whisky_type]);
+    client.query("INSERT INTO whisky ( region, distillery, expression, palate, abv, cask_finish, whisky_type) values ( $1, $2, $3, $4, $5, $6, $7 )",
+    [req.body.region, req.body.distillery, req.body.expression, req.body.palate, req.body.abv, req.body.cask_finish, req.body.whisky_type]);
     res.send(true);
     done();
   });
@@ -47,11 +48,22 @@ router.delete('/deleteScotch', function (req, res){
   });
 });//end DELETE
 
-router.put('/saveScotch', function(req, res){
-  console.log('Biggles is bringing one down to store.');
+router.put('/saveScotch/:id', function(req, res){
+  console.log('Biggles is bringing one down to age', req.body);
+  var id = req.params.id;
+  console.log(id);
   pg.connect(connectionString, function(err, client, done){
-    client.query('UPDATE whisky WHERE id =' + req.body.id);
+    console.log("UPDATE whisky SET region = '" + req.body.region + "' WHERE id  =  " +  id + ";");
+    client.query("UPDATE whisky SET region = '" + req.body.region + "' WHERE id  =  " +  id + ";");
+    if(err){
+      res.sendStatus(500);
+    } else {
+      res.sendStatus(200);
+    }
+    done();
+    console.log('Biggles cleaned house.');
   });
 });
 
 module.exports = router;
+//client.query('UPDATE whisky SET region = ' + req.body.region + ' AND WHERE id = ' + id );

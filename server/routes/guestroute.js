@@ -11,8 +11,8 @@ router.post('/queryOut', function (req, res){
   console.log('Biggles is heading to the DB bar with his buddies ' + req.body.keyword + ' ' + ' ' + req.body.region + ' ' + ' ' + req.body.scotch_type);
   var queriedScotch = [];
   pg.connect(connectionString, function(err, client, done){
-    var scotchQuery = client.query( "SELECT * FROM whisky WHERE palate::text ILIKE '%" + req.body.keyword + "%'");
-    console.log('Biggles is in! He is in!');
+    var scotchQuery = client.query( "SELECT * FROM whisky WHERE palate::text ILIKE '%" + req.body.keyword + "%' OR whisky_type = ' + req.body.whisky_type + ' OR region = ' + req.body.region'");
+      console.log('Biggles is in! He is in!');
     scotchQuery.on('row', function(row){
       queriedScotch.push(row);
       console.log('Lookee what Biggles found!');

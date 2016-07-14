@@ -1,0 +1,13 @@
+input-group{
+  display : inline-block;
+}
+.selectpicker{
+
+}
+
+.mainHeader{
+  color: blue;
+  background-color: tomato;
+  height: 60px;
+  padding: 0px;
+}

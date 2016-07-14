@@ -1,18 +1,19 @@
 <body>
 <div ng-controller="AdminWhiskyController">
-    <div class="input-group inline-block">
-      <input type="text" class="form-control" aria-describedby="sizing-addon3" ng-model="distilleryBottlerIn" maxlength ="15" value="" placeholder="Distillery/Bottler">
-        </div>
-    <div class="input-group inline-block">
-      <input type="text" class="form-control" aria-describedby="sizing-addon3" ng-model="expressionIn" maxlength ="32" value="" placeholder="Expression">
-        </div>
-    <div class="input-group inline-block">
-      <input ng-model="palateIn" class="form-control" aria-describedby="sizing-addon3" placeholder="Palate notes">
-        </div>
     <div class="input-group">
+      <input type="text" class="form-control" aria-describedby="sizing-addon3" ng-model="distilleryBottlerIn" maxlength ="15" value="" placeholder="Distillery/Bottler">
+
+
+      <input type="text" class="form-control" aria-describedby="sizing-addon3" ng-model="expressionIn" maxlength ="32" value="" placeholder="Expression">
+
+
+      <input ng-model="palateIn" class="form-control" aria-describedby="sizing-addon3" placeholder="Palate notes">
+
+
       <input type="text" ng-model="abvIn" class="form-control" aria-describedby="sizing-addon3" maxlength ="3" value="" placeholder="ABV, number only">
-        </div>
-      <select name="caskFinishIn" class="selectpicker" ng-model="caskFinishIn">
+    </div>
+
+      <select name="caskFinishIn" class="c-select" ng-model="caskFinishIn">
           <option disable selected value>Cask Finish</option>
           <option value="Bourbon">Bourbon</option>
           <option value="Sherry">Sherry</option>
@@ -28,7 +29,7 @@
           <option value="Other">Other</option>
       </select>
 
-      <select name="scotchRegion" class="selectpicker" ng-model="scotchRegionIn">
+      <select name="scotchRegion" class="c-select" ng-model="scotchRegionIn">
             <option disable selected value>Whisky Region</option>
             <option value="Highlands">Highlands</option>
             <option value="Speyside">Speyside</option>
@@ -48,7 +49,7 @@
             <option value="India">India</option>
       </select>
 
-      <select name="whiskyType" ng-model="whiskyTypeIn">
+      <select name="whiskyType" class="c-select" ng-model="whiskyTypeIn">
             <option disable selected value>Whisky Type</option>
             <option value="Single Malt">Single Malt</option>
             <option value="Single Grain">Single Grain</option>

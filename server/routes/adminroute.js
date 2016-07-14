@@ -47,4 +47,11 @@ router.delete('/deleteScotch', function (req, res){
   });
 });//end DELETE
 
+router.put('/saveScotch', function(req, res){
+  console.log('Biggles is bringing one down to store.');
+  pg.connect(connectionString, function(err, client, done){
+    client.query('UPDATE whisky WHERE id =' + req.body.id);
+  });
+});
+
 module.exports = router;

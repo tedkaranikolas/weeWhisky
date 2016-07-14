@@ -8,14 +8,14 @@ myApp.controller('SearchWhiskyController', ['$scope', '$http', function($scope, 
       region : $scope.scotchRegion,
       whisky_type : $scope.whiskyType,
     };//end queryScotchDB
-    console.log('Bilo is sending ' + scotchOut);
+    console.log('Bilo is sending ', scotchOut);
     $http({
       method: 'POST',
       url: '/queryOut',
       data: scotchOut
     }).then(function(response){
       $scope.allTheScotch = response.data;
-      console.log('Bilo is ready for a drink: ' + response.data);
+      console.log('Bilo is ready for a drink: ', response.data);
     });//end queryScotchDB
 //clears all input fields
     $scope.keywordIn = '';

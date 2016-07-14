@@ -1,5 +1,5 @@
 console.log('Bilo loaded client.js');
-//var myApp = angular.module("myApp", ["ngRoute"]);
+
 var myApp = angular.module("myApp", ["ngRoute", "xeditable"]);
 
 //angular routing for FE begins

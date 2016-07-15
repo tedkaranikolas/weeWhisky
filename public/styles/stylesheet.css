@@ -1,13 +1,13 @@
-input-group{
-  display : inline-block;
+input-group {
+  display : inline-block
 }
 .selectpicker{
 
 }
 
 .mainHeader{
-  color: blue;
-  background-color: tomato;
+  color: #7d8085;
+
   height: 60px;
   padding: 0px;
 }

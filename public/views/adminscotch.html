@@ -1,64 +1,30 @@
 <body>
 <div ng-controller="AdminWhiskyController">
-    <div class="input-group">
-      <input type="text" class="form-control" aria-describedby="sizing-addon3" ng-model="distilleryBottlerIn" maxlength ="15" value="" placeholder="Distillery/Bottler">
-      <input type="text" class="form-control" aria-describedby="sizing-addon3" ng-model="expressionIn" maxlength ="32" value="" placeholder="Expression">
+
+    <div class="input-group" style="width:15%">
+      <input type="text" class="form-control" aria-describedby="sizing-addon3" ng-model="distilleryBottlerIn" maxlength ="20" placeholder="Distillery/Bottler">
+      <input type="text" class="form-control" aria-describedby="sizing-addon3" ng-model="expressionIn" maxlength ="25" placeholder="Expression">
       <input ng-model="palateIn" class="form-control" aria-describedby="sizing-addon3" placeholder="Palate notes">
-      <input type="text" ng-model="abvIn" class="form-control" aria-describedby="sizing-addon3" maxlength ="3" value="" placeholder="ABV, number only">
+      <input type="text" ng-model="abvIn" class="form-control" aria-describedby="sizing-addon3" maxlength ="3" placeholder="ABV, number only">
     </div>
 
-      <select name="caskFinishIn" class="c-select" ng-model="caskFinishIn">
-          <option disable selected value>Cask Finish</option>
-          <option value="Bourbon">Bourbon</option>
-          <option value="Sherry">Sherry</option>
-          <option value="Port">Port</option>
-          <option value="Bourbon and Sherry">Bourbon and Sherry</option>
-          <option value="Bourbon and Oloroso">Bourbon and Oloroso</option>
-          <option value="Bourbon and Port">Bourbon and Port</option>
-          <option value="Sauternes">Sauternes</option>
-          <option value="Oloroso and Pedro Ximenez">Oloroso and Pedro Ximenez</option>
-          <option value="Caribbean Rum">Caribbean Rum</option>
-          <option value="American Oak">American Oak</option>
-          <option value="Other">Other</option>
-      </select>
 
-      <select name="repeatCaskFinish" id="repeatCaskFinish" ng-model="data.model">
-          <option ng-repeat="option in data.availableOptions" value="{{option.id}}">{{option.finish}}</option>
-      </select>
+    <div class="" style="width:15%">
+        <select class="form-control" id="repeatCaskFinish" ng-model="caskFinish" selected="caskSelect">
+            <option disable selected value>Cask Finish</option>
+            <option ng-repeat="cask in casks" value="{{cask.finish.id}}">{{cask.finish}}</option>
+        </select>
 
-      <select name="repeatRegionSelect" id="repeatRegionSelect" ng-model="data.model">
-          <option ng-repeat="option in data.availableOptions" value="{{option.id}}">{{option.region}}</option>
-      </select>
+        <select class="form-control" id="repeatRegionSelect" ng-model="regionIn">
+            <option disable selected value>Region</option>
+            <option ng-repeat="region in regions" value="{{region.region.id}}">{{region.region}}</option>
+        </select>
 
-      <select name="scotchRegion" class="c-select" ng-model="scotchRegionIn">
-            <option disable selected value>Whisky Region</option>
-            <option value="Highlands">Highlands</option>
-            <option value="Speyside">Speyside</option>
-            <option value="Lowlands">Lowlands</option>
-            <option value="Islay">Islay</option>
-            <option value="Campbeltown">Campbeltown</option>
-            <option value="Islands">Islands</option>
-            <option value="Independent Bottler">Independent Bottler</option>
-            <option value="USA">USA</option>
-            <option value="Japan">Japan</option>
-            <option value="England">England</option>
-            <option value="Wales">Wales</option>
-            <option value="Belgium">Belgium</option>
-            <option value="France">France</option>
-            <option value="Australia">Australia</option>
-            <option value="Belgium">Belgium</option>
-            <option value="India">India</option>
-            <option value="Other">Other</option>
-      </select>
-
-      <select name="whiskyType" class="c-select" ng-model="whiskyTypeIn">
+        <select class="form-control" id="repeatWhiskySelect" ng-model="whiskyTypeIn">
             <option disable selected value>Whisky Type</option>
-            <option value="Single Malt">Single Malt</option>
-            <option value="Single Grain">Single Grain</option>
-            <option value="Blended Malt">Blended Malt</option>
-            <option value="Blended Grain">Blended Grain</option>
-            <option value="Blended Scotch Whisky">Blended Scotch Whisky</option>
-      </select>
+            <option ng-repeat="whisky in whiskies" value="{{whisky.whisky_type.id}}">{{whisky.whisky_type}}</option>
+        </select>
+    </div>
 
       <button type="button" class="btn btn-primary" ng-click="addScotchDB()">Submit</button>
       <button type="button" class="btn btn-primary" ng-click="displayScotchDB()">Display All Scotches</button>
@@ -138,4 +104,3 @@
 
 </div>
 </body>
-<!-- ng-click="upDateScotchDB()" LINE 117 after ng-disabled-->

@@ -1,6 +1,6 @@
 //begin AdminWhiskyController
 myApp.controller('AdminWhiskyController', ['$scope', '$http', function($scope, $http){
-  console.log('Bilo in AdminWhiskyController');
+  console.log('Bilo is in AdminWhiskyController');
 
   $scope.addScotchDB = function(){
     var scotchEntered = {
@@ -8,8 +8,8 @@ myApp.controller('AdminWhiskyController', ['$scope', '$http', function($scope, $
       expression : $scope.expressionIn,
       palate : $scope.palateIn,
       abv : $scope.abvIn,
-      cask_finish : $scope.caskFinishIn,
-      region : $scope.scotchRegionIn,
+      cask_finish : $scope.caskFinish,
+      region : $scope.scotchRegion,
       whisky_type : $scope.whiskyTypeIn
     };//end adminScotchDB
     console.log('Bilo is sending ' + scotchEntered + 'to Biggles.');
@@ -73,11 +73,21 @@ $scope.deleteScotchDB = function(scotchID){
    url: '/menu/cask',
  }).then(function(response){
    console.log(response.data);
-     $scope.data = {
-         model: null,
-         availableOptions: response.data
-      };
+     $scope.casks = response.data;
  });
-
-
+ //REGION MENU
+ $http({
+   method: 'GET',
+   url: '/menu/region',
+ }).then(function(response){
+   console.log(response.data);
+     $scope.regions = response.data;
+ });
+ $http({
+   method: 'GET',
+   url: '/menu/whisky',
+ }).then(function(response){
+   console.log(response.data);
+     $scope.whiskies = response.data;
+ });
 }]);//end AdminWhiskyController

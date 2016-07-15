@@ -22,4 +22,20 @@ myApp.controller('SearchWhiskyController', ['$scope', '$http', function($scope, 
     $scope.scotchRegion = '';
     $scope.whiskyType = '';
   };
+  //REGION MENU
+  $http({
+    method: 'GET',
+    url: '/menu/region',
+  }).then(function(response){
+    console.log(response.data);
+      $scope.regions = response.data;
+  });
+  $http({
+    method: 'GET',
+    url: '/menu/whisky',
+  }).then(function(response){
+    console.log(response.data);
+      $scope.whiskies = response.data;
+  });
+
 }]);//end SearchWhiskyController

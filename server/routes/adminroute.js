@@ -8,10 +8,10 @@ var connectionString = 'postgres://localhost:5432/whiskyDB';
 
 //begin POST to create scotch
 router.post('/createScotch', function (req, res){
-  console.log('Biggles distilled ' + req.body.distillery);
+  console.log('Biggles distilled ', req.body);
   pg.connect(connectionString, function(err, client, done){
-    client.query("INSERT INTO whisky ( region, distillery, expression, palate, abv, cask_finish, whisky_type) values ( $1, $2, $3, $4, $5, $6, $7 )",
-    [req.body.region_id, req.body.distillery_id, req.body.expression, req.body.palate, req.body.abv, req.body.cask_finish_id, req.body.whisky_type_id]);
+    client.query("INSERT INTO whisky ( region_id, producer, expression, palate, abv, cask_finish_id, whisky_type_id) values ( $1, $2, $3, $4, $5, $6, $7 )",
+    [req.body.region_id, req.body.producer, req.body.expression, req.body.palate, req.body.abv, req.body.cask_finish_id, req.body.whisky_type_id]);
     res.send(true);
     done();
   });
@@ -21,7 +21,7 @@ router.get('/getScotch', function (req, res){
   console.log('Biggles going to the Scotch cellar...');
   var scotchDisplay = [];
   pg.connect(connectionString, function(err, client, done){
-    var adminQueriedScotch = client.query("SELECT whisky.id, expression, palate, abv, finish, producer, whisky_type, region FROM whisky JOIN cask_finish AS cf ON whisky.cask_finish_id = cf.id JOIN producer ON whisky.producer_id = producer.id JOIN region on whisky.region_id = region.id JOIN whisky_type ON whisky.whisky_type_id = whisky_type.id");
+    var adminQueriedScotch = client.query("SELECT * whisky.id, expression, palate, abv, finish, producer, whisky_type, region FROM whisky JOIN cask_finish AS cf ON whisky.cask_finish_id = cf.id JOIN producer ON whisky.producer_id = producer.id JOIN region on whisky.region_id = region.id JOIN whisky_type ON whisky.whisky_type_id = whisky_type.id");
     adminQueriedScotch.on('row', function(row){
       scotchDisplay.push(row);
     });

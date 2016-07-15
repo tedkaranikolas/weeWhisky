@@ -2,6 +2,9 @@ console.log('Bilo loaded client.js');
 
 var myApp = angular.module("myApp", ["ngRoute", "xeditable", "ui.select", "ngSanitize"]);
 
+// app.run(function(editableOptions) {
+//   editableOptions.theme = 'bs3';
+// });
 //angular routing for FE begins
 myApp.config(["$routeProvider", function($routeProvider){
     $routeProvider

@@ -1,5 +1,16 @@
+<<<<<<< HEAD
 app.controller('EditableRowCtrl', function($scope, $filter, $http) {
   $scope.users = [
+=======
+// var myApp = angular.module("app", ["xeditable", "ngMockE2E"]);
+//
+// myApp.run(function(editableOptions) {
+//   editableOptions.theme = 'bs3';
+// });
+
+myApp.controller('TestController', function($scope, $filter, $http) {
+ $scope.users = [
+>>>>>>> angular_table
     {id: 1, name: 'awesome user1', status: 2, group: 4, groupName: 'admin'},
     {id: 2, name: 'awesome user2', status: undefined, group: 3, groupName: 'vip'},
     {id: 3, name: 'awesome user3', status: 2, group: null}
@@ -64,3 +75,21 @@ app.controller('EditableRowCtrl', function($scope, $filter, $http) {
     $scope.users.push($scope.inserted);
   };
 });
+<<<<<<< HEAD
+=======
+
+// --------------- mock $http requests ----------------------
+// myApp.run(function($httpBackend) {
+//   $httpBackend.whenGET('/groups').respond([
+//     {id: 1, text: 'user'},
+//     {id: 2, text: 'customer'},
+//     {id: 3, text: 'vip'},
+//     {id: 4, text: 'admin'}
+//   ]);
+//
+//   $httpBackend.whenPOST(/\/saveUser/).respond(function(method, url, data) {
+//     data = angular.fromJson(data);
+//     return [200, {status: 'ok'}];
+//   });
+// });
+>>>>>>> angular_table

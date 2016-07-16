@@ -24,6 +24,7 @@ myApp.controller('LoginController', ['$scope', '$http', '$window', '$location', 
         });
       }
     };
+<<<<<<< HEAD
     $scope.user_id= {};
     // getUser();
     //
@@ -38,6 +39,8 @@ myApp.controller('LoginController', ['$scope', '$http', '$window', '$location', 
     //       }
     //   });
     // }
+=======
+>>>>>>> angular_table
     $scope.registerUser = function() {
       if($scope.user.username === '' || $scope.user.password === '') {
         $scope.message = "Choose a username and password";

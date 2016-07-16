@@ -62,5 +62,16 @@ $scope.deleteScotchDB = function(scotchID){
     console.log('Bilo drank it.  ALL.');
   });
 };
+//begin PUT for AdminWhiskyController
+ $scope.saveScotch = function(data, scotchid){
+   console.log('Bilo hit saveScotch');
+   console.log(data, scotchid);
+   var id = scotchid;
+   $http({
+     method: 'PUT',
+     url: '/saveScotch/' +id,
+     data: data
+   });
+ };
 
 }]);//end AdminWhiskyController

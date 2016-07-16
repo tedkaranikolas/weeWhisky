@@ -1,5 +1,11 @@
+<<<<<<< HEAD
 <div ng-controller="TestController">
   <table class="table table-bordered table-hover table-condensed">
+=======
+<h4>Angular-xeditable Editable row (Bootstrap 3)</h4>
+<div ng-app="app" ng-controller="TestController">
+   <table class="table table-bordered table-hover table-condensed">
+>>>>>>> angular_table
     <tr style="font-weight: bold">
       <td style="width:35%">Name</td>
       <td style="width:20%">Status</td>
@@ -9,7 +15,11 @@
     <tr ng-repeat="user in users">
       <td>
         <!-- editable username (text with validation) -->
+<<<<<<< HEAD
         <span editable-text="user.name" e-name="name" e-form="rowform" onbeforesave="checkName($data, user.id)">
+=======
+        <span editable-text="user.name" e-name="name" e-form="rowform" onbeforesave="checkName($data, user.id)" e-required>
+>>>>>>> angular_table
           {{ user.name || 'empty' }}
         </span>
       </td>

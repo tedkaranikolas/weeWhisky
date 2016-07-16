@@ -42,7 +42,7 @@ $scope.displayScotchDB = function(){
   });
 };//end displayScotchDB
 
-//begin DELETE for AdminWhiskyController
+//begin DELETE
 $scope.deleteScotchDB = function(scotchID){
   var sendID = {id: scotchID};
   $http({
@@ -55,17 +55,20 @@ $scope.deleteScotchDB = function(scotchID){
     console.log('Bilo drank it.  ALL.');
   });
 };
-//begin PUT for AdminWhiskyController
+ // $scope.saveScotch = function(data, scotchid, regionid, finishid, whiskiesid){
+ //begin UPDATE
  $scope.saveScotch = function(data, scotchid){
    console.log('Bilo hit saveScotch');
-   console.log(data, scotchid);
+   console.log(data);
    var id = scotchid;
    $http({
      method: 'PUT',
-     url: '/saveScotch/' +id,
+     url: '/saveScotch/' + id,
      data: data
    });
+   console.log('Bilo hit end of saveScotch');
  };
+ 
  //CASK FINISH MENU
  $http({
    method: 'GET',

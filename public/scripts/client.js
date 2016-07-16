@@ -31,9 +31,9 @@ myApp.config(["$routeProvider", function($routeProvider){
       templateUrl : '/views/adminscotch.html',
       controller : 'LoginController'
     })
-    .when('/test', {
-      templateUrl : '/views/test.html',
-      controller : 'TestController'
+    .when('/adminwhisky', {
+      templateUrl : '/views/adminwhisky.html',
+      controller : 'AdminWhiskyController'
     })
     .otherwise({
       redirectTo: '/home'

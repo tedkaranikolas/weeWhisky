@@ -48,26 +48,36 @@ router.delete('/deleteScotch', function (req, res){
   });
 });//end DELETE
 
+// router.put('/saveScotch/:id, :region, :finish, :whiskies', function(req, res){
 router.put('/saveScotch/:id', function(req, res){
     console.log('Biggles is bringing one down to age', req.body);
     var entry = req.body;
     var id = req.params.id;
-    console.log(id);
   pg.connect(connectionString, function(err, client, done){
+    console.log('Biggles is in pg connect.');
     if (err){
-      console.log('Biggles had a connection error.');
+      console.log('Biggles had an error at pg connect.');
       res.sendStatus(500);
     }
+      // client.query('UPDATE whisky ' +
+      //     'SET region_id = $1, ' +
+      //     'producer = $2, ' +
+      //     'expression = $3, ' +
+      //     'palate = $4, ' +
+      //     'abv = $5, ' +
+      //     'cask_finish_id = $6, ' +
+      //     'whisky_type_id = $7 ' +
+      //     'WHERE id = $8',
     client.query('UPDATE whisky ' +
-          'SET region = $1, ' +
-          'distillery = $2, ' +
+          'SET region_id = $1, ' +
+          'producer = $2, ' +
           'expression = $3, ' +
           'palate = $4, ' +
           'abv = $5, ' +
-          'cask_finish = $6, ' +
-          'whisky_type = $7 ' +
+          'cask_finish_id = $6, ' +
+          'whisky_type_id = $7 ' +
           'WHERE id = $8',
-     [entry.region, entry.distillery, entry.expression, entry.palate, entry.abv, entry.caks_finish, entry.whisky_type, id],
+     [entry.region_id, entry.producer, entry.expression, entry.palate, entry.abv, entry.casks_finish_id, entry.whisky_type_id, id],
      function(err, result){
        done();
        if (err){
@@ -77,6 +87,7 @@ router.put('/saveScotch/:id', function(req, res){
        }
        res.sendStatus(204);
      });
+     console.log('Biggles is out of pg-connect');
    });
 });
 

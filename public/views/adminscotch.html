@@ -74,7 +74,8 @@
                   <td>
                     <!-- <span editable-select="region" e-name="region" e-form="rowform" e-ng-value="{{region.id}}" e-ng-options="region.id as region.region for region in regions" e-required> -->
                       <span editable-select="casks" e-name="cask_finish" e-form="rowform" e-ng-value="{{finish.id}}" e-ng-options="finish.id as finish.finish for finish in casks" e-required>
-                        {{scotch.cask_finish || 'empty'}}
+                        {{scotch.finish || 'empty'}}
+                        <!-- {{scotch.cask_finish_id || 'empty'}} -->
                       </span>
                     </td>
                   <td>
@@ -83,6 +84,7 @@
                       </span>
                     </td>
                   <td style="white-space: nowrap">
+
                   <form editable-form name="rowform"  onbeforesave="saveScotch($data, scotch.id)" ng-show="rowform.$visible" class="form-buttons form-inline" shown="inserted == scotch">
                     <button type="submit" ng-disabled="rowform.$waiting" class="btn btn-primary">
                         Save
@@ -106,3 +108,67 @@
 
 </div>
 </body>
+
+                <!-- <tr ng-repeat="scotch in alladMinScotch">
+                    <td>
+                        {{scotch.id}}
+                  </td>
+                    <td>
+                        <span editable-select="region" e-name="region" e-form="rowform" e-ng-value="{{region.id}}" e-ng-options="region.id as region.region for region in regions" e-required>
+                          {{scotch.region}} -->
+                        <!-- <!- {{region.region || 'empty'}} -->
+                      <!-- </span>
+                  </td>
+                    <td>
+                        <span editable-text="scotch.producer" e-name="producer" e-form="rowform" e-required>
+                        {{scotch.producer || 'empty'}}
+                      </span>
+                    </td>
+                  <td>
+                      <span editable-text="scotch.expression" e-name="expression" e-form="rowform" e-required>
+                        {{scotch.expression || 'empty'}}
+                      </span>
+                    </td>
+                  <td>
+                      <span editable-text="scotch.palate" e-name="palate" e-form="rowform" e-required>
+                        {{scotch.palate || 'empty'}}
+                      </span>
+                    </td>
+                  <td>
+                      <span editable-text="scotch.abv" e-name="abv" e-form="rowform" e-required>
+                        {{scotch.abv || 'empty'}}
+                      </span>
+                    </td>
+                  <td>
+                      <span editable-select="casks" e-name="cask_finish" e-form="rowform" e-ng-value="{{finish.id}}" e-ng-options="finish.id as finish.finish for finish in casks" e-required>
+                        {{scotch.cask_finish || 'empty'}}
+                      </span>
+                    </td>
+                  <td>
+                      <span editable-select="whiskies" e-name="whisky_type" e-form="rowform" e-ng-value="{{whiskies.id}}" e-ng-options="whiskies.id as whiskies.whisky_type for whiskies in whiskies" e-required>
+                        {{scotch.whisky_type || 'empty'}}
+                      </span>
+                    </td>
+                  <td style="white-space: nowrap">
+                  <form editable-form name="rowform"  onbeforesave="saveScotch($data, scotch.id)" ng-show="rowform.$visible" class="form-buttons form-inline" shown="inserted == scotch">
+                    <button type="submit" ng-disabled="rowform.$waiting" class="btn btn-primary">
+                        Save
+                    </button>
+                    <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" class="btn btn-default">
+                        Cancel
+                    </button>
+                  </form>
+                  <div class="buttons" ng-show="!rowform.$visible">
+                    <button class="btn btn-primary" ng-click="rowform.$show()">Edit</button>
+                    <button class="btn btn-danger" ng-click="deleteScotchDB(scotch.id)">Delete</button>
+                  </div>
+
+                  </td>
+                </tr>
+              </table>
+
+              <button class="btn btn-default" ng-click="logout()">Log Out</button>
+              <div ng-include="'views/register.html'"></div>
+
+</div>
+</body> -->

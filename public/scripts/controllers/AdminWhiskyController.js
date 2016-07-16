@@ -4,13 +4,13 @@ myApp.controller('AdminWhiskyController', ['$scope', '$http', '$filter', functio
 
   $scope.addScotchDB = function(){
     var scotchEntered = {
-      distillery : $scope.distilleryBottlerIn,
+      producer : $scope.distilleryBottlerIn,
       expression : $scope.expressionIn,
       palate : $scope.palateIn,
       abv : $scope.abvIn,
-      cask_finish : $scope.caskFinish,
-      region : $scope.regionIn,
-      whisky_type : $scope.whiskyTypeIn
+      cask_finish_id : $scope.caskFinish,
+      region_id : $scope.regionIn,
+      whisky_type_id : $scope.whiskyTypeIn
     };//end adminScotchDB
     console.log('Bilo is sending ' + scotchEntered + 'to Biggles.');
     $http({
@@ -18,7 +18,6 @@ myApp.controller('AdminWhiskyController', ['$scope', '$http', '$filter', functio
       url: '/createScotch',
       data: scotchEntered
     }).then(function(){
-      //console.log('Bilo drank it.  ALL.');
       $scope.displayScotchDB();
     });//end queryScotchDB
 
@@ -76,29 +75,16 @@ $scope.deleteScotchDB = function(scotchID){
      $scope.casks = response.data;
  });
  //REGION MENU
+ // $scope.regionArray = [];
  $http({
    method: 'GET',
    url: '/menu/region',
  }).then(function(response){
    console.log(response.data);
+    //  $scope.regionArray = response.data;
      $scope.regions = response.data;
  });
  //WHISKY MENU
- // $scope.whiskyDisplay = [];
- //  $scope.loadWhisky = function() {
- //    return $scope.whiskyDisplay.length ? null : $http.get('/menu/whisky').success(function(data) {
- //      $scope.whiskyDisplay = data;
- //    });
- //  };
- //  $scope.showWhisky = function(user) {
- //      if(user.group && $scope.whiskyDisplay.length) {
- //        var selected = $filter('filter')($scope.whiskyDisplay, {id: user.group});
- //        return selected.length; //? selected[0].text : 'Not set';
- //      } else {
- //        return user.groupName || 'Not set';
- //      }
- //    };
-
  $http({
    method: 'GET',
    url: '/menu/whisky',

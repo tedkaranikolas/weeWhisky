@@ -21,7 +21,7 @@ router.get('/getScotch', function (req, res){
   console.log('Biggles going to the Scotch cellar...');
   var scotchDisplay = [];
   pg.connect(connectionString, function(err, client, done){
-    var adminQueriedScotch = client.query("SELECT * whisky.id, expression, palate, abv, finish, producer, whisky_type, region FROM whisky JOIN cask_finish AS cf ON whisky.cask_finish_id = cf.id JOIN producer ON whisky.producer_id = producer.id JOIN region on whisky.region_id = region.id JOIN whisky_type ON whisky.whisky_type_id = whisky_type.id");
+    var adminQueriedScotch = client.query("SELECT whisky.id, expression, palate, abv, finish, producer, whisky_type, region FROM whisky JOIN cask_finish AS cf ON whisky.cask_finish_id = cf.id JOIN region on whisky.region_id = region.id JOIN whisky_type ON whisky.whisky_type_id = whisky_type.id;");
     adminQueriedScotch.on('row', function(row){
       scotchDisplay.push(row);
     });
@@ -81,3 +81,4 @@ router.put('/saveScotch/:id', function(req, res){
 });
 
 module.exports = router;
+// "SELECT * FROM whisky ORDER BY id DESC;"

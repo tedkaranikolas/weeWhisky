@@ -73,13 +73,13 @@
                     </td>
                   <td>
                     <!-- <span editable-select="region" e-name="region" e-form="rowform" e-ng-value="{{region.id}}" e-ng-options="region.id as region.region for region in regions" e-required> -->
-                      <span editable-select="casks" e-name="cask_finish" e-form="rowform" e-ng-value="{{finish.id}}" e-ng-options="finish.id as finish.finish for finish in casks" e-required>
+                      <span editable-select="casks" e-name="cask_finish" onshow="loadCasks()" e-form="rowform" e-ng-value="{{finish.id}}" e-ng-options="finish.id as finish.finish for finish in casks" e-required>
                         {{scotch.finish || 'empty'}}
                         <!-- {{scotch.cask_finish_id || 'empty'}} -->
                       </span>
                     </td>
                   <td>
-                      <span editable-select="whiskies" e-name="whisky_type" e-form="rowform" e-ng-value="{{whiskies.id}}" e-ng-options="whiskies.id as whiskies.whisky_type for whiskies in whiskies" e-required>
+                      <span editable-select="whiskies" e-name="whisky_type" onshow="loadWhisky()" e-form="rowform" e-ng-value="{{whiskies.id}}" e-ng-options="whiskies.id as whiskies.whisky_type for whiskies in whiskies" e-required>
                         {{scotch.whisky_type || 'empty'}}
                       </span>
                     </td>
@@ -100,7 +100,7 @@
                   </td>
                 </tr>
               </table>
-
+              <button class="btn btn-default" ng-click="addWhisky()">Add Whisky</button>
               <button class="btn btn-default" ng-click="logout()">Log Out</button>
               <div ng-include="'views/register.html'"></div>
 

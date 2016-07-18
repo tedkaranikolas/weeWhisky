@@ -68,50 +68,86 @@ $scope.deleteScotchDB = function(scotchID){
    });
    console.log('Bilo hit end of saveScotch');
  };
-//ADD WHISKY
-$scope.
 
+
+//ADD WHISKY
+$scope.whisky = [
+  {
+    id : '',
+    producer : '',
+    expression : '',
+    palate : '',
+    abv : '',
+    cask_finish_id : 1,
+    region_id : 1,
+    whisky_type_id : 1
+  }
+];
+//ADD ROW FUNCTIONALITY
+$scope.addWhisky = function(){
+  $scope.inserted = {
+    // id: $scope.whisky.length + 1,
+    producer : '',
+    expression : '',
+    palate : '',
+    abv : '',
+    cask_finish_id : '',
+    region_id : '',
+    whisky_type_id : ''
+  };
+  $scope.whisky.push($scope.inserted);
+};
+
+//CASK SHOW
+$scope.showCask = function(whisky){
+  if(whisky.casks && $scope.casks.length){
+    var selected = $filter('filter')($scope.casks, {id: whisky.cask});
+    return selected.length ? selected[0].text : 'Not set';
+  } else {
+    return whisky.cask || 'Not set';
+  }
+};
  //CASK FINISH MENU
  $scope.casks = [];
- $scope.loadCasks = function (){
+ $scope.loadCask = function (){
+   console.log('in load cask');
    return $scope.casks.length ? null : $http.get('/menu/cask').success(function(data){
      $scope.casks = data;
    });
- // $http({
- //   method: 'GET',
- //   url: '/menu/cask',
- // }).then(function(response){
- //   console.log(response.data);
- //     $scope.casks = response.data;
- // });
+};
+//SHOW REGION
+$scope.showRegion = function(whisky){
+  if(whisky.region && $scope.region.length){
+    var selected = $filter('filter')($scope.region, {id: whisky.region});
+    return selected.length ? selected[0].text : 'Not set';
+  } else {
+    return whisky.region || 'Not set';
+  }
 };
  //REGION MENU
  $scope.region = [];
  $scope.loadRegion = function (){
+   console.log('in load region');
    return $scope.region.length ? null : $http.get('/menu/region').success(function(data){
      $scope.region = data;
    });
  };
- // $http({
- //   method: 'GET',
- //   url: '/menu/region',
- // }).then(function(response){
- //   console.log(response.data);
- //    //  $scope.regionArray = response.data;
- //     $scope.regions = response.data;
- // });
+ //SHOW WHISKIES
+ $scope.showWhiskies = function(whisky){
+   if(whisky.whiskies && $scope.whiskies.length){
+     var selected = $filter('filter')($scope.region, {id: whisky.whiskies});
+     return selected.length ? selected[0].text : 'Not set';
+   } else {
+     return whisky.whiskies || 'Not set';
+   }
+ };
  //WHISKY MENU
  $scope.whiskies = [];
  $scope.loadWhisky = function (){
+   console.log('in load whisky');
    return $scope.whiskies.length ? null : $http.get('/menu/whisky').success(function(data){
      $scope.whiskies = data;
    });
  };
- // $http({
- //   method: 'GET',
- //   url: '/menu/whisky',
- // }).then(function(response){
- //   console.log(response.data);
- //     $scope.whiskies = response.data;
- // });
+
 }]);//end AdminWhiskyController

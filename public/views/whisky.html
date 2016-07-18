@@ -2,22 +2,26 @@
 <!-- <div ng-controller="SearchWhiskyController"> -->
 <img src="/images/Wiskey.jpg" id="highlands" class="jumbotron" alt="" />
 <!-- <img class="jumbotron" id="highlands" src="http://static1.squarespace.com/static/557a3387e4b0e60cd91a28fd/55f90dd6e4b0c80742d5fa0f/5607e38be4b0a63e223cb073/1466445058182/Lady+Luck+Wiskey.jpg?format=2500w" alt="" /> -->
-<div class="" style="width:15%">
-    <input type="text" class="form-control" aria-describedby="sizing-addon1" maxlength ="15" ng-model="keywordIn" value="" placeholder="Search by Keyword">
+<form class="input-control">
 
-    <select class="form-control" id="repeatRegionSelect" ng-model="regionIn" e-ng-options="">
-        <option disable selected value>Region</option>
-        <option ng-repeat="region in regions" value="{{region.region.id}}">{{region.region}}</option>
-    </select>
+    <div class="" style="width:15%">
+        <input type="text" class="form-control" aria-describedby="sizing-addon1" maxlength ="15" ng-model="keywordIn" value="" placeholder="Search by Keyword">
 
-    <select class="form-control" id="repeatWhiskySelect" ng-model="whiskyTypeIn" e-ng-options="">
-        <option disable selected value>Whisky Type</option>
-        <option ng-repeat="whisky in whiskies" value="{{whisky.whisky_type.id}}">{{whisky.whisky_type}}</option>
-    </select>
+        <select class="form-control" id="repeatRegionSelect" ng-model="regionIn" e-ng-options="region in regions track by region.id">
+            <option disable selected value>Region</option>
+            <option ng-repeat="region in regions" ng-value="{{region.id}}">{{region.region}}</option>
+        </select>
+        <select class="form-control" id="repeatWhiskySelect" ng-model="whiskyTypeIn" e-ng-options="whisky in whiskies track by whisky.id">
+            <option disable selected value>Whisky Type</option>
+            <option ng-repeat="whisky in whiskies" ng-value="{{whisky.id}}">{{whisky.whisky_type}}</option>
+        </select>
 
-</div>
 
-      <button type="button" ng-click="queryScotchDB()">Search</button>
+    </div>
+</form>
+
+
+      <button type="submit" ng-click="queryScotchDB()">Search</button>
               <table>
                 <tr>
                   <th>Region</th>

@@ -69,49 +69,32 @@ $scope.deleteScotchDB = function(scotchID){
    console.log('Bilo hit end of saveScotch');
  };
 //ADD WHISKY
-$scope.
+
 
  //CASK FINISH MENU
- $scope.casks = [];
- $scope.loadCasks = function (){
-   return $scope.casks.length ? null : $http.get('/menu/cask').success(function(data){
-     $scope.casks = data;
+ $scope.loadCasks = function(){
+ $http({
+   method: 'GET',
+   url: '/menu/cask',
+ }).then(function(response){
+   console.log(response.data);
+     $scope.casks = response.data;
    });
- // $http({
- //   method: 'GET',
- //   url: '/menu/cask',
- // }).then(function(response){
- //   console.log(response.data);
- //     $scope.casks = response.data;
- // });
 };
- //REGION MENU
- $scope.region = [];
- $scope.loadRegion = function (){
-   return $scope.region.length ? null : $http.get('/menu/region').success(function(data){
-     $scope.region = data;
-   });
- };
- // $http({
- //   method: 'GET',
- //   url: '/menu/region',
- // }).then(function(response){
- //   console.log(response.data);
- //    //  $scope.regionArray = response.data;
- //     $scope.regions = response.data;
- // });
- //WHISKY MENU
- $scope.whiskies = [];
- $scope.loadWhisky = function (){
-   return $scope.whiskies.length ? null : $http.get('/menu/whisky').success(function(data){
-     $scope.whiskies = data;
-   });
- };
- // $http({
- //   method: 'GET',
- //   url: '/menu/whisky',
- // }).then(function(response){
- //   console.log(response.data);
- //     $scope.whiskies = response.data;
- // });
+ $http({
+   method: 'GET',
+   url: '/menu/region',
+ }).then(function(response){
+   console.log(response.data);
+    //  $scope.regionArray = response.data;
+     $scope.regions = response.data;
+ });
+
+ $http({
+   method: 'GET',
+   url: '/menu/whisky',
+ }).then(function(response){
+   console.log(response.data);
+     $scope.whiskies = response.data;
+ });
 }]);//end AdminWhiskyController

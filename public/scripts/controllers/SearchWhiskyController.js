@@ -5,8 +5,8 @@ myApp.controller('SearchWhiskyController', ['$scope', '$http', function($scope, 
   $scope.queryScotchDB = function(){
     var scotchOut = {
       keyword : $scope.keywordIn,
-      region : $scope.scotchRegion,
-      whisky_type : $scope.whiskyType,
+      region_id: $scope.regionIn,
+      whisky_type_id : $scope.whiskyTypeIn,
     };//end queryScotchDB
     console.log('Bilo is sending ', scotchOut);
     $http({

@@ -46,7 +46,7 @@
                         {{scotch.id}}
                   </td>
                     <td>
-                        <span editable-select="region" e-name="region" e-form="rowform" e-ng-value="{{region.id}}" e-ng-options="region.id as region.region for region in regions" e-required>
+                        <span editable-select="region" e-name="region" onshow="loadCasks()" e-form="rowform" e-ng-value="{{region.id}}" e-ng-options="region.id as region.region for region in regions" e-required>
                           {{scotch.region}}
                         <!-- {{region.region || 'empty'}} -->
                       </span>

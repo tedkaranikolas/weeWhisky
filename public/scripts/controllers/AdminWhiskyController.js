@@ -12,7 +12,6 @@ myApp.controller('AdminWhiskyController', ['$scope', '$http', '$filter', functio
       region_id : $scope.regionIn,
       whisky_type_id : $scope.whiskyTypeIn
     };//end adminScotchDB
-    console.log('Bilo is sending ' + scotchEntered + 'to Biggles.');
     $http({
       method: 'POST',
       url: '/createScotch',
@@ -72,7 +71,7 @@ $scope.deleteScotchDB = function(scotchID){
 
 
  //CASK FINISH MENU
- $scope.loadCasks = function(){
+
  $http({
    method: 'GET',
    url: '/menu/cask',
@@ -80,7 +79,7 @@ $scope.deleteScotchDB = function(scotchID){
    console.log(response.data);
      $scope.casks = response.data;
    });
-};
+
  $http({
    method: 'GET',
    url: '/menu/region',

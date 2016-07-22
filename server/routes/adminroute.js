@@ -10,6 +10,7 @@ var connectionString = 'postgres://localhost:5432/whiskyDB';
 router.post('/createScotch', function (req, res){
   console.log('Biggles distilled ', req.body);
   pg.connect(connectionString, function(err, client, done){
+    console.log('in pg connect', req.body);
     client.query("INSERT INTO whisky ( region_id, producer, expression, palate, abv, cask_finish_id, whisky_type_id) values ( $1, $2, $3, $4, $5, $6, $7 )",
     [req.body.region_id, req.body.producer, req.body.expression, req.body.palate, req.body.abv, req.body.cask_finish_id, req.body.whisky_type_id]);
     res.send(true);
@@ -44,7 +45,7 @@ router.delete('/deleteScotch', function (req, res){
       res.sendStatus(200);
     }
     done();
-    console.log('Biggles 86ed another!');
+    console.log('deleted');
   });
 });//end DELETE
 
@@ -54,9 +55,9 @@ router.put('/saveScotch/:id', function(req, res){
     var entry = req.body;
     var id = req.params.id;
   pg.connect(connectionString, function(err, client, done){
-    console.log('Biggles is in pg connect.');
+    console.log('in pg connect', req.body);
     if (err){
-      console.log('Biggles had an error at pg connect.');
+      console.log('an error at pg connect.');
       res.sendStatus(500);
     }
       // client.query('UPDATE whisky ' +

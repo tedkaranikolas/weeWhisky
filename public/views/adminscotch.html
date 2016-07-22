@@ -9,18 +9,18 @@
           <input type="text" class="form-control" aria-describedby="sizing-addon3" ng-model="abvIn"   maxlength ="3" placeholder="ABV, number only">
         </div>
 
-        <div class="" style="width:15%">
+        <div class="input-group inline-block" style="width:15%">
             <select class="form-control" id="repeatCaskFinish" ng-model="caskFinish" selected="caskSelect" e-ng-options="cask in casks track by cask.id">
                 <option disable selected value>Cask Finish</option>
                 <option ng-repeat="cask in casks" ng-value="{{cask.id}}">{{ cask.finish }}</option>
             </select>
 
-            <select class="form-control" id="repeatRegionSelect" ng-model="regionIn" e-ng-options="region in regions track by region.id">
+            <select class="form-control inline-block" id="repeatRegionSelect" ng-model="regionIn" e-ng-options="region in regions track by region.id">
                 <option disable selected value>Region</option>
                 <option ng-repeat="region in regions" ng-value="{{region.id}}">{{region.region}}</option>
             </select>
 
-            <select class="form-control" id="repeatWhiskySelect" ng-model="whiskyTypeIn" e-ng-options="whisky in whiskies track by whisky.id">
+            <select class="form-control inline-block" id="repeatWhiskySelect" ng-model="whiskyTypeIn" e-ng-options="whisky in whiskies track by whisky.id">
                 <option disable selected value>Whisky Type</option>
                 <option ng-repeat="whisky in whiskies" ng-value="{{whisky.id}}">{{whisky.whisky_type}}</option>
             </select>
@@ -46,7 +46,7 @@
                         {{scotch.id}}
                   </td>
                     <td>
-                        <span editable-select="region" e-name="region" onshow="loadCasks()" e-form="rowform" e-ng-value="{{region.id}}" e-ng-options="region.id as region.region for region in regions" e-required>
+                        <span editable-select="region" e-name="region" onshow="" e-form="rowform" e-ng-value="{{region.id}}" e-ng-options="region.id as region.region for region in regions" e-required>
                           {{scotch.region}}
                         <!-- {{region.region || 'empty'}} -->
                       </span>
@@ -106,67 +106,3 @@
 
 </div>
 </body>
-
-                <!-- <tr ng-repeat="scotch in alladMinScotch">
-                    <td>
-                        {{scotch.id}}
-                  </td>
-                    <td>
-                        <span editable-select="region" e-name="region" e-form="rowform" e-ng-value="{{region.id}}" e-ng-options="region.id as region.region for region in regions" e-required>
-                          {{scotch.region}} -->
-                        <!-- <!- {{region.region || 'empty'}} -->
-                      <!-- </span>
-                  </td>
-                    <td>
-                        <span editable-text="scotch.producer" e-name="producer" e-form="rowform" e-required>
-                        {{scotch.producer || 'empty'}}
-                      </span>
-                    </td>
-                  <td>
-                      <span editable-text="scotch.expression" e-name="expression" e-form="rowform" e-required>
-                        {{scotch.expression || 'empty'}}
-                      </span>
-                    </td>
-                  <td>
-                      <span editable-text="scotch.palate" e-name="palate" e-form="rowform" e-required>
-                        {{scotch.palate || 'empty'}}
-                      </span>
-                    </td>
-                  <td>
-                      <span editable-text="scotch.abv" e-name="abv" e-form="rowform" e-required>
-                        {{scotch.abv || 'empty'}}
-                      </span>
-                    </td>
-                  <td>
-                      <span editable-select="casks" e-name="cask_finish" e-form="rowform" e-ng-value="{{finish.id}}" e-ng-options="finish.id as finish.finish for finish in casks" e-required>
-                        {{scotch.cask_finish || 'empty'}}
-                      </span>
-                    </td>
-                  <td>
-                      <span editable-select="whiskies" e-name="whisky_type" e-form="rowform" e-ng-value="{{whiskies.id}}" e-ng-options="whiskies.id as whiskies.whisky_type for whiskies in whiskies" e-required>
-                        {{scotch.whisky_type || 'empty'}}
-                      </span>
-                    </td>
-                  <td style="white-space: nowrap">
-                  <form editable-form name="rowform"  onbeforesave="saveScotch($data, scotch.id)" ng-show="rowform.$visible" class="form-buttons form-inline" shown="inserted == scotch">
-                    <button type="submit" ng-disabled="rowform.$waiting" class="btn btn-primary">
-                        Save
-                    </button>
-                    <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" class="btn btn-default">
-                        Cancel
-                    </button>
-                  </form>
-                  <div class="buttons" ng-show="!rowform.$visible">
-                    <button class="btn btn-primary" ng-click="rowform.$show()">Edit</button>
-                    <button class="btn btn-danger" ng-click="deleteScotchDB(scotch.id)">Delete</button>
-                  </div>
-
-                  </td>
-                </tr>
-              </table>
-
-              <button class="btn btn-default" ng-click="logout()">Log Out</button>
-              <div ng-include="'views/register.html'"></div>
-
-</div>
-</body> -->

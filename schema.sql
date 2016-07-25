@@ -26,3 +26,5 @@ JOIN region on whisky.region_id = region.id
 JOIN whisky_type ON whisky.whisky_type_id = whisky_type.id;
 
 SELECT * FROM cask_finish;
+
+CREATE TABLE 

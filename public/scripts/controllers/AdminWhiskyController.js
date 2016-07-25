@@ -71,13 +71,12 @@ $scope.deleteScotchDB = function(scotchID){
 
 
  //CASK FINISH MENU
-
  $http({
    method: 'GET',
    url: '/menu/cask',
  }).then(function(response){
    console.log(response.data);
-     $scope.casks = response.data;
+     $scope.cask_finish = response.data;
    });
 
  $http({
@@ -85,7 +84,6 @@ $scope.deleteScotchDB = function(scotchID){
    url: '/menu/region',
  }).then(function(response){
    console.log(response.data);
-    //  $scope.regionArray = response.data;
      $scope.regions = response.data;
  });
 

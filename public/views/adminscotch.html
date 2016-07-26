@@ -114,6 +114,7 @@
                       </span>
                     </td>
                   <td style="white-space: nowrap">
+
                   <form editable-form name="rowform" onbeforesave="saveScotch($data, scotch.id)" ng-show="rowform.$visible" class="form-buttons form-inline" shown="inserted == scotch">
                     <button type="submit" ng-disabled="rowform.$waiting" class="btn btn-primary">
                         Save
@@ -122,6 +123,7 @@
                         Cancel
                     </button>
                   </form>
+                  
                   <div class="buttons" ng-show="!rowform.$visible">
                     <button class="btn btn-primary" ng-click="rowform.$show()">Edit</button>
                     <button class="btn btn-danger" ng-click="deleteScotchDB(scotch.id)">Delete</button>

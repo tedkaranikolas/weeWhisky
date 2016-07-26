@@ -10,17 +10,20 @@
         </div>
 
         <div class="input-group inline-block" style="width:15%">
-            <select class="form-control" id="repeatCaskFinish" ng-model="caskFinish" selected="caskSelect" e-ng-options="cask_finish in cask_finish track by cask_finish.id">
+            <select class="form-control" id="repeatCaskFinish" ng-model="caskFinish" selected="caskSelect" ng-options="cask_finish.id as cask_finish.finish for cask_finish in cask_finish">
+            <!-- <select class="form-control" id="repeatCaskFinish" ng-model="caskFinish" selected="caskSelect" e-ng-options="cask_finish in cask_finish track by cask_finish.id"> -->
                 <option disable selected value>Cask Finish</option>
                 <option ng-repeat="cask_finish in cask_finish" ng-value="{{cask_finish.id}}">{{ cask_finish.finish }}</option>
             </select>
 
-            <select class="form-control inline-block" id="repeatRegionSelect" ng-model="regionIn" e-ng-options="region in regions track by region.id">
+            <select class="form-control inline-block" id="repeatRegionSelect" ng-model="regionIn" ng-options="region.id as region.region for region in regions">
+            <!-- <select class="form-control inline-block" id="repeatRegionSelect" ng-model="regionIn" e-ng-options="region in regions track by region.id"> -->
                 <option disable selected value>Region</option>
                 <option ng-repeat="region in regions" ng-value="{{region.id}}">{{region.region}}</option>
             </select>
 
-            <select class="form-control inline-block" id="repeatWhiskySelect" ng-model="whiskyTypeIn" e-ng-options="whisky in whiskies track by whisky.id">
+            <select class="form-control inline-block" id="repeatWhiskySelect" ng-model="whiskyTypeIn" ng-options="whiskies.id as whiskies.whisky_type for whiskies in whiskies">
+            <!-- <select class="form-control inline-block" id="repeatWhiskySelect" ng-model="whiskyTypeIn" e-ng-options="whisky in whiskies track by whisky.id"> -->
                 <option disable selected value>Whisky Type</option>
                 <option ng-repeat="whisky in whiskies" ng-value="{{whisky.id}}">{{whisky.whisky_type}}</option>
             </select>
@@ -73,7 +76,7 @@
                     </td>
                   <td>
                     <!-- <span editable-select="region" e-name="region" e-form="rowform" e-ng-value="{{region.id}}" e-ng-options="region.id as region.region for region in regions" e-required> -->
-                      <span editable-select="scotch.cask_finish" e-name="cask_finish" onshow="" e-form="rowform" e-ng-value="{{cask_finish.id}}" e-ng-options="cask_finish.finish as cask_finish.finish for cask_finish in cask_finish" e-required>
+                      <span editable-select="cask_finish" e-name="cask_finish" onshow="" e-form="rowform" e-ng-value="{{cask_finish.id}}" e-ng-options="cask_finish.finish.id as cask_finish.finish for cask_finish in cask_finish" e-required>
                       <!-- <span editable-select="casks" e-name="cask_finish" onshow="loadCasks()" e-form="rowform" e-ng-value="{{finish.id}}" e-ng-options="finish.id as finish.finish for finish in casks" e-required> -->
                         {{ scotch.cask_finish }}
                       </span>

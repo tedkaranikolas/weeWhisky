@@ -11,7 +11,7 @@ router.post('/createScotch', function (req, res){
   console.log('Biggles distilled ', req.body);
   pg.connect(connectionString, function(err, client, done){
     console.log('in pg connect', req.body);
-    client.query("INSERT INTO events ( region_id, producer, expression, palate, abv, cask_finish_id, whisky_type_id) values ( $1, $2, $3, $4, $5, $6, $7 )",
+    client.query("INSERT INTO whisky ( region_id, producer, expression, palate, abv, cask_finish_id, whisky_type_id) values ( $1, $2, $3, $4, $5, $6, $7 )",
     [req.body.region_id, req.body.producer, req.body.expression, req.body.palate, req.body.abv, req.body.cask_finish_id, req.body.whisky_type_id]);
     res.send(true);
     done();

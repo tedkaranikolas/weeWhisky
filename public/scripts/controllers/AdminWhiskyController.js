@@ -11,7 +11,9 @@ myApp.controller('AdminWhiskyController', ['$scope', '$http', '$filter', functio
       cask_finish_id : $scope.caskFinish,
       region_id : $scope.regionIn,
       whisky_type_id : $scope.whiskyTypeIn
-    };//end adminScotchDB
+    };
+    console.log(scotchEntered);
+    //end adminScotchDB
     $http({
       method: 'POST',
       url: '/createScotch',
@@ -65,6 +67,7 @@ $scope.deleteScotchDB = function(scotchID){
      url: '/saveScotch/' + id,
      data: data
    });
+   console.log(data);
    console.log('Bilo hit end of saveScotch');
  };
 //ADD WHISKY

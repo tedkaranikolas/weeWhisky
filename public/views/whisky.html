@@ -1,8 +1,8 @@
 <body>
 <!-- <div ng-controller="SearchWhiskyController"> -->
 <div>
-    <input type="text" class="form-control" aria-describedby="sizing-addon1" maxlength ="15" ng-model="keywordIn" value="" placeholder="Search by Keyword">
-      <select name="whiskyType" ng-model="whiskyType">
+    <input type="text" class="form-control" aria-describedby="sizing-addon1" maxlength ="15" ng-model="keywordIn" style="width:15%" value="" placeholder="Search by Keyword">
+      <select name="whiskyType" class="form-control" style="width:15%" ng-model="whiskyType">
             <option disable selected value>WhiskyType</option>
             <option value="Single Malt">Single Malt</option>
             <option value="Single Grain">Single Grain</option>
@@ -10,7 +10,7 @@
             <option value="Blended Grain">Blended Grain</option>
             <option value="Blended Scotch Whisky">Blended Scotch Whisky</option>
       </select>
-      <select name="scotchRegion" ng-model="scotchRegion">
+      <select name="scotchRegion" class="form-control" style="width:15%" ng-model="scotchRegion">
             <option disable selected value>Region</option>
             <option value="Highlands">Highlands</option>
             <option value="Speyside">Speyside</option>

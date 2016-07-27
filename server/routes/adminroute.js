@@ -67,7 +67,7 @@ router.put('/saveScotch/:id', function(req, res){
           'cask_finish = $6, ' +
           'whisky_type = $7 ' +
           'WHERE id = $8',
-     [entry.region, entry.distillery, entry.expression, entry.palate, entry.abv, entry.caks_finish, entry.whisky_type, id],
+     [entry.region, entry.distillery, entry.expression, entry.palate, entry.abv, entry.cask_finish, entry.whisky_type, id],
      function(err, result){
        done();
        if (err){

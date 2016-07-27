@@ -18,7 +18,6 @@ myApp.controller('AdminWhiskyController', ['$scope', '$http', function($scope, $
       url: '/createScotch',
       data: scotchEntered
     }).then(function(){
-      //console.log('Bilo drank it.  ALL.');
       $scope.displayScotchDB();
     });//end queryScotchDB
 

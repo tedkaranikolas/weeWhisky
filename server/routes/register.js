@@ -16,7 +16,6 @@ router.post('/', function(req, res, next) {
     username: req.body.username,
     password: encryptLib.encryptPassword(req.body.password)
   };
-  console.log('Biggles got a new user:', saveUser);
 
   pg.connect(connection, function(err, client, done) {
     client.query("INSERT INTO scotch_users (username, password) VALUES ($1, $2) RETURNING id",

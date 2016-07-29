@@ -81,7 +81,3 @@ router.put('/saveScotch/:id', function(req, res){
 });
 
 module.exports = router;
-
-// pg.connect(connectionString, function(err, client, done){}
-//   console.log("UPDATE whisky SET region = '" + req.body.region + "' WHERE id  =  " +  id + ";");
-//   client.query("UPDATE whisky SET region = '" + entry.region + "' WHERE id =  " +  id + ";");

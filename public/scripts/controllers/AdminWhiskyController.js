@@ -1,12 +1,6 @@
 //begin AdminWhiskyController
 myApp.controller('AdminWhiskyController', ['$scope', '$http', function($scope, $http){
-  console.log('Bilo is in AdminWhiskyController');
-
-// var app = angular.module("app", ["xeditable", "ngMockE2E"]);
-//
-// app.run(function(editableOptions) {
-//   editableOptions.theme = 'bs3';
-// });
+  console.log('Bilo in AdminWhiskyController');
 
   $scope.addScotchDB = function(){
     var scotchEntered = {
@@ -24,7 +18,6 @@ myApp.controller('AdminWhiskyController', ['$scope', '$http', function($scope, $
       url: '/createScotch',
       data: scotchEntered
     }).then(function(){
-      //console.log('Bilo drank it.  ALL.');
       $scope.displayScotchDB();
     });//end queryScotchDB
 
@@ -38,7 +31,7 @@ myApp.controller('AdminWhiskyController', ['$scope', '$http', function($scope, $
     $scope.scotchRegionIn = '';
   };
 
-//begin GET to display all whiskyDB
+//begin GET to display all scotchDB
 $scope.displayScotchDB = function(){
   $http({
     method: 'GET',

@@ -2,6 +2,10 @@ console.log('Bilo loaded client.js');
 
 var myApp = angular.module("myApp", ["ngRoute", "xeditable", "ui.select", "ngSanitize"]);
 
+myApp.run(function(editableOptions) {
+  editableOptions.theme = 'bs3';
+});
+
 //angular routing for FE begins
 myApp.config(["$routeProvider", function($routeProvider){
     $routeProvider
@@ -28,15 +32,9 @@ myApp.config(["$routeProvider", function($routeProvider){
       templateUrl : '/views/adminscotch.html',
       controller : 'LoginController'
     })
-<<<<<<< HEAD
-    .when('/test',{
-        templateUrl : '/views/test.html',
-        controller : 'TestController'
-=======
     .when('/test', {
       templateUrl : '/views/test.html',
       controller : 'TestController'
->>>>>>> angular_table
     })
     .otherwise({
       redirectTo: '/home'

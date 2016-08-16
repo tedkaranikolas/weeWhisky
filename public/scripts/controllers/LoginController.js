@@ -5,7 +5,7 @@ myApp.controller('LoginController', ['$scope', '$http', '$window', '$location', 
       username: '',
       password: ''
     };
-    $scope.message = '';
+    $scope.message = 'Welcome';
 
     $scope.login = function() {
       if($scope.user.username === '' || $scope.user.password === '') {
@@ -24,26 +24,9 @@ myApp.controller('LoginController', ['$scope', '$http', '$window', '$location', 
         });
       }
     };
-<<<<<<< HEAD
-    $scope.user_id= {};
-    // getUser();
-    //
-    // function getUser() {
-    // $http.get('/router').then(function(response) {
-    //       if(response.data.username) {
-    //           $scope.userName = response.data.username;
-    //           $scope.user_id = response.data._id;
-    //           console.log('User Data: ', $scope.userName);
-    //       } else {
-    //           $location.path("/login");
-    //       }
-    //   });
-    // }
-=======
->>>>>>> angular_table
     $scope.registerUser = function() {
       if($scope.user.username === '' || $scope.user.password === '') {
-        $scope.message = "Choose a username and password";
+        $scope.message = "Choose a username and password!";
       } else {
         console.log('sending to server...', $scope.user);
         $http.post('/register', $scope.user).then(function(response) {

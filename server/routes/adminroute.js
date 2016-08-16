@@ -4,19 +4,14 @@ var path = require('path');
 var bodyParser = require('body-parser');
 var router = express.Router();
 var pg = require('pg');
-var connectionString = 'postgres://localhost:5432/whiskyDB';
+var connectionString = 'postgres://localhost:5432/scotchDB';
 
 //begin POST to create scotch
 router.post('/createScotch', function (req, res){
   console.log('Biggles distilled ' + req.body.distillery);
   pg.connect(connectionString, function(err, client, done){
-<<<<<<< HEAD
-    // client.query("INSERT INTO whisky ( region, distillery, expression, palate, abv, cask_finish, whisky_type) values ( $1, $2, $3, $4, $5, $6, $7 )",[req.body.region, req.body.distillery, req.body.expression, req.body.palate, req.body.abv, req.body.cask_finish, req.body.whisky_type]);
-    client.query("INSERT INTO whisky ( region_id, producer_id, expression, palate, abv, cask_finish_id, whisky_type_id) values ( $1, $2, $3, $4, $5, $6, $7 )",[req.body.region, req.body.distillery, req.body.expression, req.body.palate, req.body.abv, req.body.cask_finish, req.body.whisky_type]);
-=======
     client.query("INSERT INTO whisky ( region, distillery, expression, palate, abv, cask_finish, whisky_type) values ( $1, $2, $3, $4, $5, $6, $7 )",
     [req.body.region, req.body.distillery, req.body.expression, req.body.palate, req.body.abv, req.body.cask_finish, req.body.whisky_type]);
->>>>>>> angular_table
     res.send(true);
     done();
   });
@@ -72,7 +67,7 @@ router.put('/saveScotch/:id', function(req, res){
           'cask_finish = $6, ' +
           'whisky_type = $7 ' +
           'WHERE id = $8',
-     [entry.region, entry.distillery, entry.expression, entry.palate, entry.abv, entry.caks_finish, entry.whisky_type, id],
+     [entry.region, entry.distillery, entry.expression, entry.palate, entry.abv, entry.cask_finish, entry.whisky_type, id],
      function(err, result){
        done();
        if (err){
@@ -86,7 +81,3 @@ router.put('/saveScotch/:id', function(req, res){
 });
 
 module.exports = router;
-
-// pg.connect(connectionString, function(err, client, done){}
-//   console.log("UPDATE whisky SET region = '" + req.body.region + "' WHERE id  =  " +  id + ";");
-//   client.query("UPDATE whisky SET region = '" + entry.region + "' WHERE id =  " +  id + ";");

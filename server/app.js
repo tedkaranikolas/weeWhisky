@@ -43,11 +43,9 @@ app.use(passport.session());
 
 //use routes
 app.use('/login', login);
+app.use('/', login);
 app.use('/register', register);
 app.use('/router', router);
-app.use('/', login);
-
-//app.use('/', router);
 
 app.use('/', guestroute);
 app.use('/', adminroute);

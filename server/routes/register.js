@@ -7,7 +7,7 @@ var path = require('path');
 var encryptLib = require('../modules/encryption');
 var connection = require('../modules/connection');
 var pg = require('pg');
-var connectionString = 'postgres://localhost:5432/scotchDB';
+var connectionString = 'postgres://localhost:5432/whiskyDB';
 
 //handles POST request with new user data
 router.post('/', function(req, res, next) {
@@ -18,7 +18,7 @@ router.post('/', function(req, res, next) {
   };
 
   pg.connect(connection, function(err, client, done) {
-    client.query("INSERT INTO scotch_users (username, password) VALUES ($1, $2) RETURNING id",
+    client.query("INSERT INTO users (username, password) VALUES ($1, $2) RETURNING id",
       [saveUser.username, saveUser.password],
         function (err, result) {
           client.end();
